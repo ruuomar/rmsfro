@@ -1,0 +1,31 @@
+div{
+    width: 95%;
+    margin-top: 10px;
+    float: right;
+    margin :20px;
+    
+    height: 700px;
+}
+mat-card{
+    width: 100%;
+    margin-bottom: 2%;
+    height: 10%;
+}
+mat-card-title{
+    margin-bottom: 10%;
+}
+mat-icone{
+    margin-left: 5%;
+}
+
+input[type=text], 
+input[type=Number],
+input[type=password],
+input[type=email],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+    box-sizing: border-box;
+  }

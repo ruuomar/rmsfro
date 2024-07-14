@@ -1,0 +1,41 @@
+<div>
+    <mat-card>
+        <mat-card-title><i class="fas fa-list  text-black"></i>User List</mat-card-title>
+        </mat-card>
+            <div >
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Document title</th>
+                            <th>Document Name</th>
+                            <th>Date Uplod</th>
+                            <th>Document</th>
+                            <th>status</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of list; track $index){
+                            <tr>   
+                                <td>{{$index+1}}</td>
+                                <td>{{item.doc_type}}</td>
+                                <td>{{item.doc_Title}}</td>
+                                <td>{{item.doc_dateUpload}}</td>
+                                <td>{{item.doc_uplodfile}}</td>
+                                <td>{{item.doc_status}}</td>
+                        <td>
+                            <mat-icon color="warn" (click)="(item.doc_id)">check_circle</mat-icon>
+                            <mat-icon color="success" (click)="viewfile(item.doc_id)">visibility</mat-icon>
+                        </td></tr>
+                }
+                             
+                    
+           
+                 </tbody>
+                </table>
+        </div>
+        
+        
+</div>
+

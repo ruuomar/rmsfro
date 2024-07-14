@@ -1,0 +1,105 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      @if (role == 'Admin'){
+        <a mat-list-item routerLink="listUser">User list</a>
+        <a mat-list-item routerLink="adduser">Add User</a>
+        <a mat-list-item routerLink="AllocationList">Allocation list</a>
+        <!-- <a mat-list-item routerLink="user/:userID">edit user</a> -->
+        <!-- <a mat-list-item [matMenuTriggerFor]="userMenu">
+          <mat-icon>personal</mat-icon>
+          <span>Users</span></a>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item routerLink="listUser">
+            <mat-icon>list</mat-icon>
+            <span> User List</span>
+          </button>
+          <button mat-menu-item routerLink="adduser"><mat-icon>person_add</mat-icon>
+            <span> add User</span></button>
+        </mat-menu>  -->
+      }
+      @else if (role === 'Supervisor') {
+        <a mat-list-item routerLink="submition">Submition</a>
+        <mat-menu #submissionMenu="matMenu">
+          <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
+          <button mat-menu-item routerLink="ongoingResearch">Ongoing Research</button>
+          <button mat-menu-item routerLink="researchComplete">Research Complete</button>
+          
+        </mat-menu>
+      }
+      @else if (role === 'Student') {
+        <a mat-list-item routerLink="#">Dashboard</a>
+        <a mat-list-item routerLink="studentDashboard">Detail Form</a>
+        <a mat-list-item routerLink="mysubmition">My Submition</a>
+        <a mat-list-item routerLink="result">Result</a>
+      }
+
+      @else if (role === 'PGO') {
+        <a mat-list-item routerLink="">Dashboard</a>
+        <a mat-list-item routerLink="view">Student</a>
+        <a mat-list-item routerLink="supervisorView">Supervisor</a>
+        <a mat-list-item routerLink="allocationList">Allocation List</a>
+      }
+
+      @else if (role === 'Examiner') {
+       <a mat-list-item routerLink="AllocationList"></a>
+        <mat-menu #submissionMenu="matMenu">
+          <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
+          <button mat-menu-item routerLink="ongoingResearch">Ongoing Research</button>
+          <button mat-menu-item routerLink="researchComplete">Research Complete</button>
+        </mat-menu>
+      }
+
+      <!-- <a mat-list-item routerLink="Dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span></a>
+      <a mat-list-item [matMenuTriggerFor]="submissionMenu">
+        <mat-icon>folder</mat-icon>
+        <span>Submission</span></a>
+      <mat-menu #submissionMenu="matMenu">
+        <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
+        <button mat-menu-item routerLink="ongoingResearch">Ongoing Research</button>
+        <button mat-menu-item routerLink="researchComplete">Research Complete</button>
+      </mat-menu>
+        <a mat-list-item routerLink="allocationList">
+          <mat-icon>list</mat-icon>
+          <span> Allocation List</span></a>
+      <a mat-list-item [matMenuTriggerFor]="userMenu">
+        <mat-icon>personal</mat-icon>
+        <span>Users</span></a>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item routerLink="listUser">
+          <mat-icon>list</mat-icon>
+          <span> User List</span>
+        </button>
+        <button mat-menu-item routerLink="adduser"><mat-icon>person_add</mat-icon>
+          <span> add User</span></button>
+      </mat-menu>    
+       <a mat-list-item routerLink="tittleuplod"></a>
+      <a mat-list-item routerLink="detailtittle">Internal examiner</a>
+      <a mat-list-item routerLink="dashboadAdmin">dashboadAdmin</a>  
+     -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <span>Research Management System</span>
+      <mat-icon (click)="logout()">logout</mat-icon>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
