@@ -13,7 +13,7 @@
         
         <label>Document Type:</label><br>
         <select class="form-select" formControlName="doc_type">
-          <option value="concept_note">Concept Note</option>
+          <option value="concept note">Concept Note</option>
           <option value="proposal">Proposal</option>
           <option value="progress">Progress</option>
         </select><br>
@@ -23,31 +23,4 @@
         <button mat-raised-button color="primary" (click)="onSave()" [disabled]="document.invalid">Save</button>
       </form>
     </div>
-    <div >
-      <table class="table">
-          <thead>
-              <tr>
-                  <th>SN</th>
-                  <th>Document title</th>
-                  <th>Document Name</th>
-                  <th>Document</th>
-              </tr>
-          </thead>
-          <tbody>
-              @for (item of list; track $index){
-                  <tr>   
-                      <td>{{$index+1}}</td>
-                      <td>{{item.doc_type}}</td>
-                      <td>{{item.doc_Title}}</td>
-                      <td>{{item.doc_uplodfile}}</td>
-                      
-              <td>
-                  <mat-icon color="warn" (click)="(item.doc_id)">delete</mat-icon>
-                  <mat-icon color="success" (click)="view()">visibility</mat-icon>
-              </td></tr>
-      }  
-       </tbody>
-      </table>
-</div>
-  </div>
  

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { UserService } from '../../services/user.service';
-import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-add-user',
@@ -11,7 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './add-user.component.css'
 })
 export class AddUserComponent implements OnInit {
-constructor(private user:UserService,private router:Router,private dialog:MatDialog){}
+
+constructor(private user:UserService,private router:Router){}
   ngOnInit(): void {
    this.configrationAddUser()
   }
@@ -36,4 +37,8 @@ onSave(){
   console.log(data)
   })
 }
+
+onback() {
+  return this.router.navigateByUrl('listUser')
+  }
 }

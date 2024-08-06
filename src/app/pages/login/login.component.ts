@@ -52,7 +52,7 @@ logForm!:FormGroup
       this.router.navigateByUrl('submition')
     }
       
-    else if(payload2.role == "examiner"){
+    else if(payload2.role == "Examiner"){
       this.router.navigateByUrl('AllocationList')
     }
     else if(payload2.role == "PGO"){

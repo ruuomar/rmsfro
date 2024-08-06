@@ -6,11 +6,13 @@ import { __values } from 'tslib';
 
 @Component({
   selector: 'app-reg',
-  templateUrl: './reg.component.html',
+  templateUrl:'./reg.component.html',
   styleUrl: './reg.component.css'
 })
 export class RegComponent implements OnInit{
   constructor(private router:Router, private user:UserService){}
+
+  
   ngOnInit(): void {
     this.configrationForm();
   }

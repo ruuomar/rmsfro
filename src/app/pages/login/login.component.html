@@ -1,21 +1,25 @@
-<form [formGroup]="logForm" class="log-form" log-form rounded-circle>
+
+<form [formGroup]="logForm" class="log-form">
   <div class="main">
-    <div class="p-3 mb-2 bg-primary text-white">login</div>
-    <img src="./assets/suza.png" class="rounded-circle" alt="State University of Zanzibar">
-    <p>State university of Zanzibar</p>
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
-      <label for="floatingInput">Email or address</label>
+    <div class="logo-container text-center mb-3">
+      <img src="./assets/suza.png" class="rounded-circle logo" alt="State University of Zanzibar">
+      <p class="university-name">State University of Zanzibar</p>
     </div>
-    <div class="form-floating">
-      <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control"placeholder="name@example.com" formControlName="email">
+      <label for="floatingInput">Email Address</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="password" formControlName="password" class="form-control"  placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
-    <div class="login">
-      <button mat-raised-button color="primary" [disabled]="logForm.invalid" (click)="onLogin()">login</button>
+    <div class="login text-center">
+      <button mat-raised-button color="primary" [disabled]="logForm.invalid" (click)="onLogin()">Login</button>
     </div>
-    <div class="form-group d-flex justify-content-between mb-3">
+    <div class="form-group d-flex justify-content-between mt-3 mb-3">
       <a href="#" class="text-primary">Forgot Password?</a>
     </div>
-  </div> 
-</form>  
+    <p class="text-center">Don't have an account? <a routerLink="registration" class="text-primary">Register</a></p>
+  </div>
+</form>
+

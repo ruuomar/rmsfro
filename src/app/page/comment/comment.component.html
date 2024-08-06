@@ -1,0 +1,36 @@
+<!-- 
+<div>
+    <h2>Add a Comment</h2>
+  
+    <div>
+      <textarea [(ngModel)]="newComment" placeholder="Write a comment..."></textarea>
+      <button (click)="addComment()">Add Comment</button>
+    </div>
+  </div> -->
+
+  <div class="comment-section">
+    <h2>Add a Comment</h2>
+  
+    <mat-card>
+      <mat-form-field appearance="fill" class="comment-textarea">
+        <textarea
+          matInput
+          
+          placeholder="Write a comment..."
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          formControlName=" description"
+          cdkAutosizeMinRows="2"
+          cdkAutosizeMaxRows="5"
+        ></textarea>
+      </mat-form-field>
+  
+      <div class="button-container">
+        <button mat-raised-button color="primary" (click)="addComment()">
+          Add Comment
+        </button>
+      </div>
+    </mat-card>
+  </div>
+  
+  

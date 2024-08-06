@@ -15,7 +15,12 @@
   top: 0;
   z-index: 1;
 }
-mat-icon{
-  margin-left: 70%;
+.rmc{
+  align-items: center;
+  font-style:initial;
+  margin-left: 25%;
 }
 
+.logout{
+  margin-left: 45%;
+}

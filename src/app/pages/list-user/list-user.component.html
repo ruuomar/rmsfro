@@ -1,43 +1,46 @@
-<div>
+
     <mat-card>
-        <mat-card-title><i class="fas fa-list  text-black"></i>User List</mat-card-title>
-        </mat-card>
-            <div >
-                <button mat-raised-button color="primary" (click)="addUser()" class="add">Add User</button> 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>SN</th>
-                            <th>First name</th>
-                            <th>last Name</th>
-                            <th>phoneNumber</th>
-                            <th>email</th>
-                            <th>role</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (item of list; track $index){
-                            <tr>   
-                                <td>{{$index+1}}</td>
-                                <td>{{item.first_name}}</td>
-                                <td>{{item.last_name}}</td>
-                                <td>{{item.phoneNumber}}</td>
-                                <td>{{item.email}}</td>
-                                <td>{{item.role}}</td>
-                        <td>
-                            <mat-icon color="warn" (click)="ondelete(item. userID)">delete</mat-icon>
-                            <mat-icon color="primary" (click)="onupdate(item.userID)">edit</mat-icon>
-                            <!-- <button mat-raised-button color="warn" (click)="ondelete(item. userID)"><mat-icon >delete</mat-icon></button>
-                            <button mat-raised-button color="primary" (click)="onupdate(item.userID)"><mat-icon>update</mat-icon></button> -->
-                        </td></tr>
-                }
-                             
-                    
-           
-                 </tbody>
-                </table>
-        </div>
-        
-        
-</div>
+        <mat-card-header>
+            <mat-card-title>User</mat-card-title>
+            <mat-card-subtitle>User List</mat-card-subtitle>
+        </mat-card-header>
+      <mat-card-content>
+            <button mat-raised-button color="primary" (click)="addUser()" class="add">Add User</button> 
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>First name</th>
+                        <th>last Name</th>
+                        <th>phoneNumber</th>
+                        <th>email</th>
+                        <th>role</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of list; track $index){
+                        <tr>   
+                            <td>{{$index+1}}</td>
+                            <td>{{item.first_name}}</td>
+                            <td>{{item.last_name}}</td>
+                            <td>{{item.phoneNumber}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.role}}</td>
+                    <td>
+                        <mat-icon color="warn" (click)="ondelete(item. userID)">delete</mat-icon>
+                        <mat-icon color="primary" (click)="onupdate(item.userID)">edit</mat-icon>
+                    </td></tr>
+            }
+             </tbody>
+            </table>
+        </mat-card-content>
+      </mat-card>
+
+
+<!--       
+ <mat-card>
+   <tbody>
+    <h3 class="mat-card-title">Name: ${item.User.first_name}</h3>
+   </tbody>
+</mat-card> -->

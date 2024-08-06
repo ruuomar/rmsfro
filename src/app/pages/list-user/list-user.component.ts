@@ -19,6 +19,7 @@ export class ListUserComponent implements OnInit{
    this.getAll()
   }
 
+  
   getAll(){
         this.user.getAll().subscribe((data)=>{
           this.list = data;
@@ -26,10 +27,12 @@ export class ListUserComponent implements OnInit{
         })
   }
  
+
   onupdate(userID:any){
     this.router.navigateByUrl('edituser/'+userID)
 
   }
+
 
   ondelete(list:any){
     this.user.delete(list).subscribe(()=>{
@@ -40,22 +43,22 @@ export class ListUserComponent implements OnInit{
   }
 
   addUser(){
-    // this.router.navigateByUrl('adduser')
-     // this.router.navigate(['/studentForm']);
-     {const options = {
-      data :{
-            crudMod: 'create',
-            student: null
-      },
-      width:'60%',
-      height:'50%'
-    }
+    this.router.navigateByUrl('adduser')
+     
+    //  {const options = {
+    //   data :{
+    //         crudMod: 'create',
+    //         student: null
+    //   },
+    //   width:'60%',
+    //   height:'50%'
+    // }
 
-    this.dialog.open(EdituserComponent,options)
+    // this.dialog.open(EdituserComponent,options)
     
 
 
-    }
+    // }
     
   }
  

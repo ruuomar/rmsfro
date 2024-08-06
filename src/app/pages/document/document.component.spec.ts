@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TittleuplodComponent } from './tittleuplod.component';
+import { DocumentComponent } from './document.component';
 
-describe('TittleuplodComponent', () => {
-  let component: TittleuplodComponent;
-  let fixture: ComponentFixture<TittleuplodComponent>;
+describe('DocumentComponent', () => {
+  let component: DocumentComponent;
+  let fixture: ComponentFixture<DocumentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TittleuplodComponent]
+      declarations: [DocumentComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TittleuplodComponent);
+    fixture = TestBed.createComponent(DocumentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

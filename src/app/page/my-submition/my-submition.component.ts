@@ -12,7 +12,6 @@ export class MySubmitionComponent implements OnInit {
   list:any
   ngOnInit(): void {
     this.documentConfigaration()
-    this.getAll()
     
   }
   constructor(private router:Router,private doc:DocumentService){}
@@ -39,22 +38,13 @@ export class MySubmitionComponent implements OnInit {
     formData.append('doc_Title', this.document.get('doc_Title')?.value);
     formData.append('doc_type', this.document.get('doc_type')?.value);
     formData.append('doc_uplodfile', this.selectedFile);
-
     this.doc.add(formData).subscribe((data: any) => {
       console.log(data);
       this.document.reset();
     });
   }
-
-  getAll(){
-    this.doc.getAll().subscribe((data)=>{
-      this.list = data;
-      console.log(data)
-
-    })
-  }
-  view(){}
-
+  
+ 
   }
 
 

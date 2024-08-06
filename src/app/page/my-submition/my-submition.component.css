@@ -5,16 +5,17 @@
      
   } */
   
-   mat-card {
-    margin-bottom: 5%;
-    height: 10%;
-    box-shadow: 1px 1px blue;
+
+  
+
+  .container {
+    margin: 20px;
   }
   
-  mat-card-title {
-    margin-bottom: 10px; 
+  mat-card {
+    padding: 20px;
   }
-  
+
   /* mat-icon {
     margin-right: 10px; 
   }

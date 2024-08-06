@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>Supervisor list</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>supervisor Name</th>
+                    <th>phone Number</th>
+                    <th>email</th>
+                </tr>
+            </tbody>
+            <thead>
+                @for (item of items; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{items.first_name}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.phoneNumber}}</td>
+                    </tr>
+                }
+            </thead>
+        </table>
+    </mat-card-content>
+</mat-card>

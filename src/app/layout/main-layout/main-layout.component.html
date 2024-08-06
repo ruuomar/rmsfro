@@ -6,23 +6,65 @@
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
       @if (role == 'Admin'){
-        <a mat-list-item routerLink="listUser">User list</a>
-        <a mat-list-item routerLink="adduser">Add User</a>
-        <a mat-list-item routerLink="AllocationList">Allocation list</a>
-        <!-- <a mat-list-item routerLink="user/:userID">edit user</a> -->
-        <!-- <a mat-list-item [matMenuTriggerFor]="userMenu">
-          <mat-icon>personal</mat-icon>
-          <span>Users</span></a>
-        <mat-menu #userMenu="matMenu">
+        <a mat-list-item routerLink="dashboard">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+      </a>
+      
+      <a mat-list-item [matMenuTriggerFor]="userMenu">
+          <mat-icon>person</mat-icon>
+          <span>Manage User</span>
+      </a>
+      <mat-menu #userMenu="matMenu">
           <button mat-menu-item routerLink="listUser">
-            <mat-icon>list</mat-icon>
-            <span> User List</span>
+              <mat-icon>list</mat-icon>
+              <span>User List</span>
           </button>
-          <button mat-menu-item routerLink="adduser"><mat-icon>person_add</mat-icon>
-            <span> add User</span></button>
-        </mat-menu>  -->
+          <!-- Uncomment if needed -->
+          <!-- 
+          <button mat-menu-item routerLink="/addUser">
+              <mat-icon>person_add</mat-icon>
+              <span>Add User</span>
+          </button>
+          -->
+      </mat-menu>
+      
+      <a mat-list-item [matMenuTriggerFor]="allocationMenu">
+          <mat-icon>assignment</mat-icon>
+          <span>Allocation List</span>
+      </a>
+      <mat-menu #allocationMenu="matMenu">
+          <button mat-menu-item routerLink="AllocationList">
+              <mat-icon>list</mat-icon>
+              <span>Supervisor</span>
+          </button>
+          <button mat-menu-item routerLink="allocaionExaminer">
+              <mat-icon>list</mat-icon>
+              <span>Internal Examiner</span>
+          </button>
+      </mat-menu>
+      
+      <a mat-list-item routerLink="view">
+          <mat-icon>visibility</mat-icon>
+          <span>View Student</span>
+      </a>
+      
+      <a mat-list-item routerLink="viewSupervisor" >
+          <mat-icon>supervisor_account</mat-icon>
+          <span>View Supervisor</span>
+      </a>
+      
+      <a mat-list-item routerLink="document">
+          <mat-icon>description</mat-icon>
+          <span>Document</span>
+      </a>
+      
+      
+        <!-- <a mat-list-item routerLink="listUser">User list</a> -->
+        <!-- <a mat-list-item routerLink="adduser">Add User</a> -->
       }
       @else if (role === 'Supervisor') {
+        <a mat-list-item routerLink="#">Dashboard</a>
         <a mat-list-item routerLink="submition">Submition</a>
         <mat-menu #submissionMenu="matMenu">
           <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
@@ -32,20 +74,55 @@
         </mat-menu>
       }
       @else if (role === 'Student') {
-        <a mat-list-item routerLink="#">Dashboard</a>
-        <a mat-list-item routerLink="studentDashboard">Detail Form</a>
-        <a mat-list-item routerLink="mysubmition">My Submition</a>
-        <a mat-list-item routerLink="result">Result</a>
+        <a mat-list-item routerLink="stdDashboad" class="menu-item">
+          <mat-icon class="menu-icon">dashboard</mat-icon>
+          <span>Dashboard</span>
+      </a>
+      
+      <a mat-list-item routerLink="studentDashboard" class="menu-item">
+          <mat-icon class="menu-icon">assignment</mat-icon>
+          <span>Detail Form</span>
+      </a>
+      
+      <a mat-list-item routerLink="mysubmition" class="menu-item">
+          <mat-icon class="menu-icon">file_upload</mat-icon>
+          <span>My Submition</span>
+      </a>
+      
+      <a mat-list-item routerLink="#" class="menu-item">
+          <mat-icon class="menu-icon">comment</mat-icon>
+          <span>View Comment</span>
+      </a>
+      
+      <a mat-list-item routerLink="result" class="menu-item">
+          <mat-icon class="menu-icon">grade</mat-icon>
+          <span>Result</span>
+      </a>
+      
       }
 
       @else if (role === 'PGO') {
         <a mat-list-item routerLink="">Dashboard</a>
         <a mat-list-item routerLink="view">Student</a>
         <a mat-list-item routerLink="supervisorView">Supervisor</a>
-        <a mat-list-item routerLink="allocationList">Allocation List</a>
+        <a mat-list-item [matMenuTriggerFor]="allocationMenu">
+          <mat-icon>assignment</mat-icon>
+          <span>Allocation List</span>
+      </a>
+      <mat-menu #allocationMenu="matMenu">
+          <button mat-menu-item routerLink="AllocationList">
+              <mat-icon>list</mat-icon>
+              <span>Supervisor</span>
+          </button>
+          <button mat-menu-item routerLink="allocaionExaminer">
+              <mat-icon>list</mat-icon>
+              <span>Internal Examiner</span>
+          </button>
+      </mat-menu>
       }
 
       @else if (role === 'Examiner') {
+        <a mat-list-item routerLink="examinerDasbord">Dashboard</a>
        <a mat-list-item routerLink="AllocationList"></a>
         <mat-menu #submissionMenu="matMenu">
           <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
@@ -96,8 +173,8 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
-      <span>Research Management System</span>
-      <mat-icon (click)="logout()">logout</mat-icon>
+      <span class="rmc">Research Management System</span>
+      <mat-icon (click)="logout()" class="logout">logout</mat-icon>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

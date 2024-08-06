@@ -10,7 +10,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   add(body:any){
-   return this.http.post(this.url+"User",body);
+   return this.http.post(this.url+"insertUser",body);
   }
 
   getAll(){

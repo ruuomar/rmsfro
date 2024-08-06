@@ -1,10 +1,40 @@
 <div>
-    <table>
-        <tbody>
-            <tr>
-                <th>id</th>
-                <th>mmmm</th>
-            </tr>
-        </tbody>
-    </table>
+    <mat-card>
+        <mat-card-title><i class="fas fa-list  text-black"></i>User List</mat-card-title>
+        </mat-card>
+            <div >
+                <button mat-raised-button color="primary" (click)="onAllocation()" class="add"><mat-icon>add</mat-icon> Allocation</button> 
+                <table class ="table">
+                    <thead>
+                        <tr>
+                            <th>SN</th>
+                            <th>Supervisor Name</th>
+                            <th>Student Name</th>
+                            <th>Registration Number</th>
+                            <th>Program</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of list; track $index){
+                            <tr>   
+                                <td>{{$index+1}}</td>
+                                <td>{{item.supervisor.user.first_name}}  {{ item.supervisor.user.last_name }}</td>
+                                <td>{{item.student.std_name}}</td>
+                                <td>{{item.student.std_regNumber}}</td>
+                                <td>{{item.student.Std_program}}</td>
+                        <td>
+                        </td>
+                    <td><button mat-raised-button color="warn"(click)="ondelete(item.allocate_Id)">delete</button></td>
+                    <td><button mat-raised-button color="warn"(click)="onedit()">editi</button></td>
+                </tr>
+                }
+                             
+                    
+           
+                 </tbody>
+                </table>
+        </div>
+        
+        
 </div>

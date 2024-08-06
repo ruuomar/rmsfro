@@ -38,7 +38,8 @@ export class StudentDashboadComponent implements OnInit {
   onsave(){
     const values = this.detailStudent.value
     this.student.add(values).subscribe((response)=>{
-      console.log(response)
+      // console.log(response)
+      this.router.navigateByUrl('mysubmition')
     })
   }
 
