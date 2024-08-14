@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-interface CommentData { 
-  description: string;
-  status: string;
-  doc_id: number;
+
+export interface UserCountResponse {
+  allocation: number;
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,11 @@ export class AllocationService {
 
   constructor(private http: HttpClient) {}
 
- getAllSupervisor(){
+addallocation(body:any){
+    return this.http.post(this.url+"insertallocation",body)
+  }
+
+getAllSupervisor(){
   return this.http.get(this.url+"supervisor_allocations")
  }
 
@@ -23,15 +27,19 @@ getAllExaminer(){
   return this.http.get(this.url+"examiner_allocation")
 }
 
-  addallocation(body:any){
-    return this.http.post(this.url+"insertallocation",body)
-  }
+getAllAllocation(){
+  return this.http.get(this.url+"getallac")
+}
+
+
   
  delete(allocate_Id:any){
   const urls = `${this.url+"deleteallocation"}/${allocate_Id}/`
   return this.http.delete(urls)
  }
 
-
+getfechAllocation():Observable<number>{
+  return this.http.get<number>(this.url+"countAllocation")
+}
 
 }

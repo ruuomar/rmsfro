@@ -1,6 +1,6 @@
 <div>
     <mat-card>
-        <mat-card-title><i class="fas fa-list  text-black"></i>User List</mat-card-title>
+        <mat-card-title><mat-icon>list</mat-icon>Allocation of Examiner and Student</mat-card-title>
         </mat-card>
             <div >
                 <button mat-raised-button color="primary" (click)="onAllocation()" class="add"><mat-icon>add</mat-icon> Allocation</button> 
@@ -19,7 +19,7 @@
                         @for (item of list; track $index){
                             <tr>   
                                 <td>{{$index+1}}</td>
-                                <td>{{item.Examiner.user.first_name}} {{ item.Examiner.user.last_name }}</td>
+                                <td>{{item.supervisor.user.first_name}} {{ item.supervisor.user.last_name }}</td>
                                 <td>{{item.student.std_name}}</td>
                                 <td>{{item.student.std_regNumber}}</td>
                                 <td>{{item.student.Std_program}}</td>

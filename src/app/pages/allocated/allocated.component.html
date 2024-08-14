@@ -7,13 +7,15 @@
           <mat-option *ngFor="let i of super" [value]="i.sup_id">{{ i.user.first_name + ' ' + i.user.last_name }}</mat-option>
         </mat-select>
       </mat-form-field>
-
+      
       <mat-form-field appearance="outline">
         <mat-label>Select Student</mat-label>
         <mat-select [(ngModel)]="selectStudent" name="student" multiple>
           <mat-option *ngFor="let i of std" [value]="i.Stu_id">{{ i.std_name }}</mat-option>
         </mat-select>
       </mat-form-field>
+    
+    
 
       <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
       <button mat-raised-button color="warn" (click)="goBack()">Back</button>

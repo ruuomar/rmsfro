@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -48,6 +49,10 @@ export class AuthService {
     if (this.payload){
       return this.payload.role;
     }
+  }
+
+  checkStudentRegistration(userId: number): Observable<boolean> {
+    return this.http.get<boolean>(`http://127.0.0.1:8000/api/check-registration/${userId}/`);
   }
       
 }

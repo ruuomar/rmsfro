@@ -12,13 +12,22 @@ import { UserService } from '../../services/user.service';
 })
 export class AddUserComponent implements OnInit {
 
-constructor(private user:UserService,private router:Router){}
+
+constructor(private user:UserService,
+  private router:Router){}
   ngOnInit(): void {
    this.configrationAddUser()
   }
 
 
 addUser!:FormGroup
+roles = [
+  { value: 'Supervisor', viewValue: 'Supervisor' },
+  { value: 'PGO', viewValue: 'Postgraduate Officer' },
+  { value: 'Examiner', viewValue: 'Internal Examiner' },
+  { value: 'Student', viewValue: 'Student' },
+  { value: 'Admin', viewValue: 'Admin' },
+];
 
 configrationAddUser(){
   this.addUser = new FormGroup({
@@ -35,6 +44,7 @@ onSave(){
   const values = this.addUser.value;
   this.user.add(values).subscribe((data:any)=>{
   console.log(data)
+  this.addUser.reset()
   })
 }
 

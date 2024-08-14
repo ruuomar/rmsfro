@@ -1,32 +1,38 @@
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>SN</th>
-                <th>Registration No</th>
-                <th>Document title</th>
-                <th>Document Name</th>
-                <th>Date Uplod</th>
 
-                <th>status</th>
-                <th>action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (item of list; track $index){
-                <tr>   
-                    <td>{{$index+1}}</td>
-                    <td>{{item.student.std_regNumber }}</td>
-                    <td>{{item.doc_type}}</td>
-                    <td>{{item.doc_Title}}</td>
-                    <td>{{item.doc_dateUpload}}</td>
-                    <td>{{item.doc_status}}</td>
-                    <td>
-                        <button class="btn btn-outline-success" (click)="viewfile(item.doc_id)"color="big-sucess">view</button>
-                    </td>
+<mat-card>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Registration No</th>
+                    <th>Research Title</th>
+                    <th>Document Name</th>
+                    <th>Date Uplod</th>
+                    <th>approval</th>
+                    <th>status</th>
+                    <th>action</th>
                 </tr>
-            }
-            
-     </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                @for (item of list; track $index){
+                    <tr>   
+                        <td>{{$index+1}}</td>
+                        <td>{{item.student.std_regNumber }}</td>
+                        <!-- <td>{{item.doc_type}}</td> -->
+                        <td>{{item.title}}</td>
+                        <td>{{item.doc_type}}</td>
+                        <td>{{item.date}}</td>
+                        <td>{{item.approval}}</td>
+                        <td>{{item.is_completed ? 'completed' : 'Not Comleted' }}</td>
+                        <td>
+                            <button class="btn btn-outline-success" color="big-sucess" (click)= "onEdit()">Edit</button>
+                            <!-- <button class="btn btn-outline-success" (click)="viewfile(item.research_id)"color="big-sucess">view</button> -->
+                        </td>
+                    </tr>
+                }   
+         </tbody>
+        </table>
+    </div>
+</mat-card>
+

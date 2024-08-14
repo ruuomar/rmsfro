@@ -23,9 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { InternalExaminerComponent } from './pages/internal-examiner/internal-examiner.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PGOComponent } from './pages/pgo/pgo.component';
 import { RegComponent } from './pages/reg/reg.component';
 import { DashboardAdminComponent } from './page/dashboard-admin/dashboard-admin.component';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -48,6 +46,16 @@ import { AllocationExaminerComponent } from './pages/allocation-examiner/allocat
 import { ListAllocationExaminerComponent } from './pages/list-allocation-examiner/list-allocation-examiner.component';
 import { DashbodExaminerComponent } from './page/dashbod-examiner/dashbod-examiner.component';
 import { ViewSupervisorComponent } from './pages/view-supervisor/view-supervisor.component';
+import { ViewCommentComponent } from './page/view-comment/view-comment.component';
+import { DashbordSupervisorComponent } from './page/dashbord-supervisor/dashbord-supervisor.component';
+import { DashbordExaminerComponent } from './page/dashbord-examiner/dashbord-examiner.component';
+import { AddresearchComponent } from './page/addresearch/addresearch.component';
+import { PgoDashbordComponent } from './page/pgo-dashbord/pgo-dashbord.component';
+import { AllocationAllComponent } from './page/allocation-all/allocation-all.component';
+import { ReserchDocumentComponent } from './page/reserch-document/reserch-document.component';
+import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.component';
+import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
+
 
 
 
@@ -61,8 +69,6 @@ import { ViewSupervisorComponent } from './pages/view-supervisor/view-supervisor
     NewlySubmitionComponent,
     StudentDashboadComponent,
     SubmitionComponent,
-    InternalExaminerComponent,
-    PGOComponent,
     RegComponent,
     DashboardAdminComponent,
     ListUserComponent,
@@ -81,6 +87,15 @@ import { ViewSupervisorComponent } from './pages/view-supervisor/view-supervisor
     ListAllocationExaminerComponent,
     DashbodExaminerComponent,
     ViewSupervisorComponent,
+    ViewCommentComponent,
+    DashbordSupervisorComponent,
+    DashbordExaminerComponent,
+    AddresearchComponent,
+    PgoDashbordComponent,
+    AllocationAllComponent,
+    ReserchDocumentComponent,
+    AddUserDialogComponent,
+    OnotherDocumentComponent,
    
    
     

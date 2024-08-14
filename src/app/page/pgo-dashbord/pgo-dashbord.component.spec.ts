@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PGOComponent } from './pgo.component';
+import { PgoDashbordComponent } from './pgo-dashbord.component';
 
-describe('PGOComponent', () => {
-  let component: PGOComponent;
-  let fixture: ComponentFixture<PGOComponent>;
+describe('PgoDashbordComponent', () => {
+  let component: PgoDashbordComponent;
+  let fixture: ComponentFixture<PgoDashbordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PGOComponent]
+      declarations: [PgoDashbordComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PGOComponent);
+    fixture = TestBed.createComponent(PgoDashbordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

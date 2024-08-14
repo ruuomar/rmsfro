@@ -58,3 +58,9 @@ p {
 /* p a:hover {
   text-decoration: underline;
 } */
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

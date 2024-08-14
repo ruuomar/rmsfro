@@ -92,6 +92,7 @@ export class AllocatedComponent implements OnInit {
   std: any;
   selectStudent!: string[];
   selectSupervisor!: string;
+supervisors: any;
 
   constructor(
     private supervisor: SupervisorService, 
@@ -129,15 +130,15 @@ export class AllocatedComponent implements OnInit {
       return;
     }
 
-    const data = {
-      Supervisor: this.selectSupervisor,
-      Students: this.selectStudent
-    };
-
+     const data = {
+    sup_id: this.selectSupervisor, // Change from "Supervisor" to "sup_id"
+    Stu_id: this.selectStudent    // Change from "Student" to "Stu_id"
+  };
+    
     this.allocation.addallocation(data).subscribe((response: any) => {
-        console.log('Data submitted successfully:', response);
+      console.log('Data submitted successfully:', response);
         // Optionally, display a success message to the user
-      },
+      }
     );
   }
 }

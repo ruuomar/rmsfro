@@ -1,4 +1,4 @@
-div{
+/* div{
     width: 95%;
     margin-top: 10px;
     float: right;
@@ -33,4 +33,41 @@ select {
   
   .back{
     margin-left: 85%;
+  } */
+
+  .register-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
   }
+  
+  .mat-card-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mat-card-title {
+    margin-left: 8px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .button-group button {
+    margin-left: 8px;
+  }
+  

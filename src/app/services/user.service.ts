@@ -1,10 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+export interface UserCountResponse {
+  user_count: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  
   private url= String("http://127.0.0.1:8000/api/")
 
   constructor(private http:HttpClient) { }
@@ -31,6 +37,10 @@ export class UserService {
     const urls = `${this.url+"deleteuser"}/${userID}/`
     return this.http.delete(urls)
     
+  }
+  // for account user
+  getAccountUser(): Observable<UserCountResponse> {
+    return this.http.get<UserCountResponse>(this.url + 'user-count/');
   }
 
 }

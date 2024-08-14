@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>allocaton supervisor and student List of  student</mat-card-subtitle>
+    </mat-card-header>
+        <mat-card-content>
+            <button mat-raised-button color="primary" (click)="generatePDF()">
+                Download PDF
+              </button>
+<table>
+    <thead>
+      <tr>
+        <th>Supervisor</th>
+        <th>Students</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let allocation of allocations">
+        <td>{{ allocation.supervisor }}</td>
+        <td>
+          <ol>
+            <li *ngFor="let student of allocation.students">{{ student }}</li>
+          </ol>
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+  
+        </mat-card-content>
+</mat-card>

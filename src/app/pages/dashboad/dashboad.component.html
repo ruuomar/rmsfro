@@ -1,52 +1,22 @@
-<div class="container-fluid">
-  <div class="container-dashboard d-flex justify-content-between align-items-center">
-    <h1>Dashboard</h1>
-    <mat-form-field appearance="outline" class="search-field">
-      <mat-label>Search</mat-label>
-      <input matInput placeholder="Search">
-      <button mat-icon-button matSuffix>
-        <mat-icon>search</mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm rounded overflow-hidden bg-primary">
-          <div class="card-body d-flex flex-column justify-content-between align-items-center">
-            <i class="fas fa-envelope fa-5x text-white"></i>
-            <h5 class="card-title text-white">newlySubmition</h5>
-            <p class="card-text text-white"></p>
-            <a class="stretched-link text-white" routerLink="newlySubmition">See More</a>
-          </div>
-        </div>
+
+  <div class="headers">
+    <p>Admin</p>
+    <div class="dashboard-container">
+      <div class="account-box">
+          <h2>{{userCount}}</h2>
+          <mat-icon>people</mat-icon>
+          <p>ToTal Users</p>
       </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm rounded overflow-hidden bg-info">
-          <div class="card-body d-flex flex-column justify-content-between align-items-center">
-            <i class="fas fa-clock fa-5x text-white"></i>
-            <h5 class="card-title text-white">Ongoing Research</h5>
-            <p class="card-text text-white"></p>
-            <a href="#" class="stretched-link text-white">See More</a>
-          </div>
-        </div>
+
+      <div class="account-box">
+          <h2>{{allocationCount}}</h2>
+          <mat-icon>assignment</mat-icon> 
+          <p>Allocation list</p>
       </div>
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm rounded overflow-hidden bg-success">
-          <div class="card-body d-flex flex-column justify-content-between align-items-center">
-            <i class="fas fa-check fa-5x text-white"></i>
-            <h5 class="card-title text-white">Completed Research</h5>
-            <p class="card-text text-white"></p>
-            <a href="#" class="stretched-link text-white">See More</a>
-          </div>
-        </div>
+
+      <div class="account-box">
+          <h2></h2>
+          <p>Reserch Completed</p>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-12">
-        <div class="chart">
-          </div>
-      </div>
-    </div>
   </div>
 </div>

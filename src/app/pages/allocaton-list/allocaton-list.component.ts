@@ -9,10 +9,11 @@ import { Router } from '@angular/router';
   
 })
 export class AllocatonListComponent implements OnInit {
+ list:any
 onedit() {
 
 }
-list:any
+
 constructor(private allocation:AllocationService,private router:Router){}
   ngOnInit(): void {
     this.getAll()

@@ -1,8 +1,10 @@
-<div>
+
     <mat-card>
-        <mat-card-title><i class="fas fa-list  text-black"></i>User List</mat-card-title>
-        </mat-card>
-            <div >
+        <mat-card-header>
+            <mat-card-subtitle>allocaton supervisor and studentList</mat-card-subtitle>
+        </mat-card-header>
+       
+            <mat-card-content>
                 <button mat-raised-button color="primary" (click)="onAllocation()" class="add"><mat-icon>add</mat-icon> Allocation</button> 
                 <table class ="table">
                     <thead>
@@ -24,17 +26,13 @@
                                 <td>{{item.student.std_regNumber}}</td>
                                 <td>{{item.student.Std_program}}</td>
                         <td>
+                    <mat-icon color="warn" (click)= "ondelete(item.allocate_Id)">delete</mat-icon>
+                     <mat-icon color="primary" click ="onedit()">edit</mat-icon>
                         </td>
-                    <td><button mat-raised-button color="warn"(click)="ondelete(item.allocate_Id)">delete</button></td>
-                    <td><button mat-raised-button color="warn"(click)="onedit()">editi</button></td>
+                    
                 </tr>
                 }
-                             
-                    
-           
                  </tbody>
                 </table>
-        </div>
-        
-        
-</div>
+            </mat-card-content>
+    </mat-card>

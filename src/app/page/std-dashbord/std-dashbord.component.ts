@@ -5,6 +5,7 @@ import { DocumentService } from '../../services/document.service';
 import { DocumentDialogComponent } from '../document-dialog/document-dialog.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
+import { ResearchService } from '../../services/research.service';
 
 @Component({
   selector: 'app-std-dashbord',
@@ -13,11 +14,13 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class StdDashbordComponent implements OnInit {
 
+
 constructor(
   private router:Router,
   private document:DocumentService, 
   private sanitizer: DomSanitizer,
-  private dialog:MatDialog
+  private dialog:MatDialog,
+  private research:ResearchService,
 ){}
 
 list: any;
@@ -33,14 +36,25 @@ list: any;
   //   })
   // }
 
-  getAll(): void {
-    this.document.getAll().subscribe((data) => {
+  // getAll(): void {
+  //   this.document.getAll().subscribe((data) => {
+  //     if (Array.isArray(data)) {
+  //       this.list = data;
+  //     } else {
+  //       this.list = [data]; // Convert the single object to an array
+  //     }
+  //     console.log(this.list);
+  //   });
+  // }
+
+  getAll(){
+    this.document.getAll().subscribe((data:any)=>{
       if (Array.isArray(data)) {
-        this.list = data;
-      } else {
-        this.list = [data]; // Convert the single object to an array
-      }
-      console.log(this.list);
+              this.list = data;
+            } else {
+              this.list = [data]; // Convert the single object to an array
+            }
+            console.log(this.list);
     });
   }
 
@@ -59,6 +73,9 @@ list: any;
     });
   
   }
+  onEdit() {
+    return this.router.navigateByUrl('updateDocument');
+    }
   
 
 }

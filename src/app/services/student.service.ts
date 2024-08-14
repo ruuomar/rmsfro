@@ -6,6 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StudentService {
+  isStudentPreviouslySelected(studentId: number): boolean {
+    throw new Error('Method not implemented.');
+  }
+  filter(arg0: (student: any) => any): any {
+    throw new Error('Method not implemented.');
+  }
   private url= String("http://127.0.0.1:8000/api/")
 
   constructor(private http:HttpClient) { }

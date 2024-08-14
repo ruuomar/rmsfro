@@ -1,4 +1,4 @@
-<!-- <div class="form-container">
+<!-- <div class="form-container"[formGroup] ="detailStudent">
   <form>
     <h2>Student Registration Form</h2>  <label for="fullName">Full Name:</label>
     <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>  <br>
@@ -6,7 +6,7 @@
     <input type="text" id="studentProgram" name="studentProgram" placeholder="Enter your program name" required>  <br>
     <label for="registrationNumber">Registration Number:</label>
     <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter your registration number" required>  <br>
-    <button type="submit" class="submit-button">Save Registration</button>  </form>
+    <button type="submit" class="submit-button">Save</button>  </form>
 </div> -->
 
 <mat-card>
@@ -18,11 +18,11 @@
       <div class="form-container">
           <form [formGroup]="detailStudent" >
           <label for="fullName">full name:</label>
-          <input type="text" formControlName="std_name" placeholder="Enter first name" required>  <br>
+          <input type="text" formControlName="std_name" placeholder="Enter full name" required>  <br>
           <label for="LastName">Student Program:</label>
-          <input type="text" formControlName="Std_program" placeholder="Enter last name" >  <br>
+          <input type="text" formControlName="Std_program" placeholder="Enter your program" >  <br>
           <label for="phoneNumber">Registration Number:</label>
-          <input type="text" formControlName="std_regNumber" placeholder="Enter last name" >  <br>
+          <input type="text" formControlName="std_regNumber" placeholder="Enter registration number" >  <br>
           <label for ="year"> Research Year:</label>
           <input type="date">
           <button mat-raised-button color="primary" (click)="onsave()" [disabled]="detailStudent.invalid ">Save</button>  

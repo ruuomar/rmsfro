@@ -31,8 +31,6 @@ getAll(){
   
 }
 
-
-
 viewfile(doc_id: string): void {
   this.document.getfile(doc_id).subscribe((blob) => {
     const file = new Blob([blob], { type: blob.type });

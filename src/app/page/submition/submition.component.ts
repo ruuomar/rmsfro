@@ -12,9 +12,11 @@ import { MainLayoutComponent } from '../../layout/main-layout/main-layout.compon
   styleUrl: './submition.component.css'
 })
 export class SubmitionComponent implements OnInit {
+
+onComplete: any;
   constructor(
     private router:Router,
-    private doc:DocumentService, 
+    private documentservice:DocumentService, 
     private sanitizer: DomSanitizer,
     private dialog:MatDialog,
     private loyout:MainLayoutComponent
@@ -25,11 +27,12 @@ export class SubmitionComponent implements OnInit {
  
   }
   getAll(){
-    this.doc.getAll().subscribe((data)=>{
+    this.documentservice.getAll().subscribe((data)=>{
       this.list = data;
       console.log(data);
       
     })
+
     // this.role = 'Supervisor';
     // this.role = 'Student';
   }
@@ -41,8 +44,8 @@ export class SubmitionComponent implements OnInit {
   //   });
   // }
 
-  viewfile(doc_id: string): void {
-    this.doc.getfile(doc_id).subscribe((blob) => {
+  viewfile(research_id: string): void {
+    this.documentservice.getfile(research_id).subscribe((blob) => {
       const file = new Blob([blob], { type: blob.type });
       const url = window.URL.createObjectURL(file);
 
@@ -56,16 +59,24 @@ export class SubmitionComponent implements OnInit {
   
   }
 
-  onComment(doc_id:any){
-    return this.router.navigateByUrl('comment')
+  onComment(research_id:any){
+    console.log(research_id);
+    
+    return this.router.navigate(['/comment', research_id]);
   }
   
-  approve(doc_id:any){
-    return this.doc.approve(doc_id).subscribe((response)=>{
-      console.log("Document Approved Succesiffully")
+  approve(research_id:any){
+    return this.documentservice.approve(research_id).subscribe((response)=>{
+      this.getAll()
+      
+      console.log("Document Approved Succesiffully"+ research_id)
+    })  
+  }
+  rejected(research_id:any){
+    return this.documentservice.reject_research(research_id).subscribe((response)=>{
+      console.log('rejected');
+      
+      this.getAll()
     })
-    
-    
   }
-  
 }

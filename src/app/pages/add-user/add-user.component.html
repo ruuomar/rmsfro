@@ -1,33 +1,47 @@
-<mat-card>
-    <mat-card-header>
-        <mat-icon>person_add</mat-icon>
-      <mat-card-title>Register User</mat-card-title>
-    </mat-card-header>
-  </mat-card>
-    <div>
-        <div class="form-container">
-            <form [formGroup]="addUser">
-            <label for="fullName">first Name:</label>
-            <input type="text" formControlName="first_name" placeholder="Enter first name" required>  <br>
-            <label for="LastName">last Name:</label>
-            <input type="text" formControlName="last_name" placeholder="Enter last name" >  <br>
-            <label for="phoneNumber">Phone Number:</label>
-            <input type="Number" placeholder="Enter phoneNumber" formControlName="phoneNumber" required>  <br>
-            <label for="email">Email:</label>
-            <input type="text" formControlName="email" placeholder="Enter Email">  <br>
-            <label for="password">Email:</label>
-            <input type="password" placeholder="Enter password" required formControlName="password">  <br>
-            <label>user type</label>
-            <select class="form-select"  formControlName="role">
-                <option selected>Open this select user</option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="PGO">Postgraduate officer</option>
-                <option value="Examiner">Internal examiner</option>
-                <option value="Student">Student</option>
-                <option value="3">Admin</option>
-            </select>
-            <button mat-raised-button color="primary" (click)="onSave()" >Save</button>
-            <button mat-raised-button color="warn" (click)="onback()" class="back">Back</button>
-            </form>
-        
-    </div>
+<mat-card class="register-card">
+  <mat-card-header>
+    <mat-icon>person_add</mat-icon>
+    <mat-card-title>Register User</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="addUser" class="form-container">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="first_name" placeholder="Enter first name" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="last_name" placeholder="Enter last name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="number" formControlName="phoneNumber" placeholder="Enter phone number" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Enter email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Enter password" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>User Type</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="button-group">
+        <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+        <button mat-raised-button color="warn" (click)="onback()">Back</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+

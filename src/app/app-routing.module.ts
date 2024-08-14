@@ -15,7 +15,6 @@ import { ResultComponent } from './page/result/result.component';
 import { MySubmitionComponent } from './page/my-submition/my-submition.component';
 import { EdituserComponent } from './pages/edituser/edituser.component';
 import { SubmitionComponent } from './page/submition/submition.component';
-import { InternalExaminerComponent } from './pages/internal-examiner/internal-examiner.component';
 import { ViewStudentComponent } from './page/view-student/view-student.component';
 import { CommentComponent } from './page/comment/comment.component';
 import { AllocatedComponent } from './pages/allocated/allocated.component';
@@ -25,6 +24,14 @@ import { AllocationExaminerComponent } from './pages/allocation-examiner/allocat
 import { ListAllocationExaminerComponent } from './pages/list-allocation-examiner/list-allocation-examiner.component';
 import { DashbodExaminerComponent } from './page/dashbod-examiner/dashbod-examiner.component';
 import { ViewSupervisorComponent } from './pages/view-supervisor/view-supervisor.component';
+import { ViewCommentComponent } from './page/view-comment/view-comment.component';
+import { DashbordSupervisorComponent } from './page/dashbord-supervisor/dashbord-supervisor.component';
+import { AddresearchComponent } from './page/addresearch/addresearch.component';
+import { PgoDashbordComponent } from './page/pgo-dashbord/pgo-dashbord.component';
+import { AllocationAllComponent } from './page/allocation-all/allocation-all.component';
+import { ReserchDocumentComponent } from './page/reserch-document/reserch-document.component';
+import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.component';
+import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
 
 const routes: Routes = [{
   path: '',component: MainLayoutComponent,
@@ -44,14 +51,23 @@ const routes: Routes = [{
     {path: 'result',component:ResultComponent},
     {path: 'submition',component:SubmitionComponent},
     {path: 'mysubmition',component:MySubmitionComponent},
-    {path: 'comment',component:CommentComponent},
+    {path: 'comment/:research_id',component:CommentComponent},
     {path: 'allocation',component:AllocatedComponent},
     {path: 'stdDashboad', component:StdDashbordComponent},
     {path: 'student',component:StudentDashboadComponent},
+    {path: 'viewCOmment',component:ViewCommentComponent},
     {path: 'view',component:ViewStudentComponent},
     {path: 'viewSupervisor', component:ViewSupervisorComponent},
     {path: 'studentDashboard', component:StudentDashboadComponent},
     {path: 'document', component:DocumentComponent},
+    {path: 'superDashbord',component:DashbordSupervisorComponent},
+    {path: 'examinerDashbord', component:DashbodExaminerComponent},
+    {path:'addRsearch', component:AddresearchComponent},
+    {path: 'pgoDashbord',component:PgoDashbordComponent},
+    {path:'allocationAll',component:AllocationAllComponent},
+    {path: 'reserchDocument',component:ReserchDocumentComponent},
+    {path: 'dialogUserAdd',component:AddUserDialogComponent},
+    {path:'updateDocument',component:OnotherDocumentComponent}
   ]
 },
 {path: 'login/registration', component:RegComponent},

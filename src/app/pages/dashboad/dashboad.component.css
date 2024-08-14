@@ -124,13 +124,43 @@ main{
   color: #007bff;
 } */
 
-.container {
+/* .container {
   width: 90%;
   margin: 0 auto;
   padding: 20px;
+} */
+/* dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+} */
+/* 
+.account-box {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s;
+} */
+
+/* .account-box:hover {
+  transform: scale(1.05);
 }
 
-h1 {
+.account-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.account-box p {
+  color: #666;
+} */
+
+/* h1 {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -138,53 +168,151 @@ h1 {
 .row {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
-.col-md-6 {
+/* .col-md-6 {
   flex: 1 0 50%;
   padding: 10px;
-}
+} */
 
-.panel {
+/* .panel {
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 20px;
-}
+} */
 
-.panel h2 {
+/* .panel h2 {
   margin-top: 0;
   margin-bottom: 10px;
-}
+} */
 
-.chart {
-  height: 300px; /* Badilisha ukubwa wa chati */
+/* .chart {
+  height: 300px; 
   border: 1px solid #ddd;
   padding: 20px;
-}
+} */
 
 
-mat-icon {
+/* mat-icon {
   cursor: pointer;
-}
-
+} */
+/* 
 .col-md-4 {
-  flex: 1 0 33.33%; /* Badilisha thamani ya flex */
+  flex: 1 0 33.33%; 
   padding: 10px;
-}
+} */
 
-.container-Dashbord h1{
+/* .container-Dashbord h1{
   margin-top: 30px;
   margin-left: auto;
   background-color: blue;
   
-}
-.container-dashboard {
-  display: flex; /* Enable flexbox for alignment */
-  justify-content: space-between; /* Position elements horizontally */
-  align-items: center; /* Vertically center elements within the container */
+} */
+/* .container-dashboard {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
   padding-top: 2%;
+} */
+
+
+
+
+/* styles.css */
+
+
+
+/* .dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
+.container-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
+h1 {
+  margin: 0;
+  color: #333;
+}
 
+.search-field {
+  display: flex;
+  align-items: center;
+}
+
+.account-box {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.account-box:hover {
+  transform: scale(1.05);
+}
+
+.account-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.account-box p {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .container-dashboard {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .search-field {
+      margin-top: 10px;
+  }
+} */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 8%;
+}
+
+.account-box {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.5);
+  margin: 10px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.account-box:hover {
+  transform: scale(1.05);
+}
+
+.account-box h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.account-box p {
+  color: #666;
+}
+
+mat-icon{
+  float: right;
+  font-size: 25px;
+}
 

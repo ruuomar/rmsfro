@@ -1,1 +1,24 @@
-<p>result works!</p>
+<mat-card>
+    <mat-card-content>
+        <button (click)="addResult()"></button>
+    </mat-card-content>
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>level</th>
+                <th>section</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr>
+            @for (item of items; track $index) {
+                <td></td>
+                <td> </td>
+                <td></td>
+            }
+           </tr>
+        </tbody>
+    </table>
+</mat-card>

@@ -1,9 +1,9 @@
-/* textarea{
+textarea{
     height: 50%;
     width:40%;
-} */
+} 
 
-.comment-section {
+comment-section {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -23,5 +23,39 @@
   .button-container {
     text-align: right;
     margin-top: 10px;
+  } 
+
+
+
+   .comment-section {
+    max-width: 600px;
+    margin: 0 auto;
   }
   
+  .comment-textarea {
+    width: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  } 
+  
+  
+  
+
+   /* .comment-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+} */

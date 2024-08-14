@@ -6,7 +6,7 @@
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
       @if (role == 'Admin'){
-        <a mat-list-item routerLink="dashboard">
+        <a mat-list-item routerLink="Dashboard">
           <mat-icon>dashboard</mat-icon>
           <span>Dashboard</span>
       </a>
@@ -58,13 +58,14 @@
           <mat-icon>description</mat-icon>
           <span>Document</span>
       </a>
+      <a mat-list-item routerLink="allocationAll">Allocation</a>
       
       
         <!-- <a mat-list-item routerLink="listUser">User list</a> -->
         <!-- <a mat-list-item routerLink="adduser">Add User</a> -->
       }
       @else if (role === 'Supervisor') {
-        <a mat-list-item routerLink="#">Dashboard</a>
+        <a mat-list-item routerLink="superDashbord">Dashboard</a>
         <a mat-list-item routerLink="submition">Submition</a>
         <mat-menu #submissionMenu="matMenu">
           <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
@@ -78,7 +79,7 @@
           <mat-icon class="menu-icon">dashboard</mat-icon>
           <span>Dashboard</span>
       </a>
-      
+
       <a mat-list-item routerLink="studentDashboard" class="menu-item">
           <mat-icon class="menu-icon">assignment</mat-icon>
           <span>Detail Form</span>
@@ -89,7 +90,7 @@
           <span>My Submition</span>
       </a>
       
-      <a mat-list-item routerLink="#" class="menu-item">
+      <a mat-list-item routerLink="viewCOmment" class="menu-item">
           <mat-icon class="menu-icon">comment</mat-icon>
           <span>View Comment</span>
       </a>
@@ -102,27 +103,40 @@
       }
 
       @else if (role === 'PGO') {
-        <a mat-list-item routerLink="">Dashboard</a>
-        <a mat-list-item routerLink="view">Student</a>
-        <a mat-list-item routerLink="supervisorView">Supervisor</a>
-        <a mat-list-item [matMenuTriggerFor]="allocationMenu">
-          <mat-icon>assignment</mat-icon>
-          <span>Allocation List</span>
-      </a>
-      <mat-menu #allocationMenu="matMenu">
-          <button mat-menu-item routerLink="AllocationList">
+        
+        <nav>
+          <a mat-list-item routerLink="pgoDashbord" routerLinkActive="active-link">
+            <mat-icon>dashboard</mat-icon>
+            <span>Dashboard</span>
+          </a>
+          <a mat-list-item routerLink="view" routerLinkActive="active-link">
+            <mat-icon>person</mat-icon>
+            <span>Student</span>
+          </a>
+          <a mat-list-item routerLink="supervisorView" routerLinkActive="active-link">
+            <mat-icon>people</mat-icon>
+            <span>Supervisor</span>
+          </a>
+          <a mat-list-item [matMenuTriggerFor]="allocationMenu">
+            <mat-icon>assignment</mat-icon>
+            <span>Allocation List</span>
+          </a>
+          <mat-menu #allocationMenu="matMenu">
+            <button mat-menu-item routerLink="AllocationList" routerLinkActive="active-link">
               <mat-icon>list</mat-icon>
               <span>Supervisor</span>
-          </button>
-          <button mat-menu-item routerLink="allocaionExaminer">
+            </button>
+            <button mat-menu-item routerLink="allocaionExaminer" routerLinkActive="active-link">
               <mat-icon>list</mat-icon>
               <span>Internal Examiner</span>
-          </button>
-      </mat-menu>
+            </button>
+          </mat-menu>
+        </nav>
+        
       }
 
       @else if (role === 'Examiner') {
-        <a mat-list-item routerLink="examinerDasbord">Dashboard</a>
+        <a mat-list-item routerLink="examinerDashbord">Dashboard</a>
        <a mat-list-item routerLink="AllocationList"></a>
         <mat-menu #submissionMenu="matMenu">
           <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
@@ -173,7 +187,7 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
-      <span class="rmc">Research Management System</span>
+      <span class="rmc">Research Management System(RMS)</span>
       <mat-icon (click)="logout()" class="logout">logout</mat-icon>
     </mat-toolbar>
     <!-- Add Content Here -->

@@ -1,8 +1,8 @@
 
     <mat-card>
         <mat-card-header>
-            <mat-card-title>User</mat-card-title>
-            <mat-card-subtitle>User List</mat-card-subtitle>
+           
+            <mat-card-subtitle><h2>User List</h2></mat-card-subtitle>
         </mat-card-header>
       <mat-card-content>
             <button mat-raised-button color="primary" (click)="addUser()" class="add">Add User</button> 
@@ -10,8 +10,7 @@
                 <thead>
                     <tr>
                         <th>SN</th>
-                        <th>First name</th>
-                        <th>last Name</th>
+                        <th>User Name</th>
                         <th>phoneNumber</th>
                         <th>email</th>
                         <th>role</th>
@@ -22,8 +21,7 @@
                     @for (item of list; track $index){
                         <tr>   
                             <td>{{$index+1}}</td>
-                            <td>{{item.first_name}}</td>
-                            <td>{{item.last_name}}</td>
+                            <td>{{item.first_name}} {{item.last_name}}</td>
                             <td>{{item.phoneNumber}}</td>
                             <td>{{item.email}}</td>
                             <td>{{item.role}}</td>

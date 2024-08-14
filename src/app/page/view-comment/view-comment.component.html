@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>View Comment</mat-card-title>
+  </mat-card-content>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>SN</th>
+        <th>Comment</th>
+        <th>Document type</th>
+        <th>Date sent</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        @for (item of list; track $index) {
+          <tr>
+            <td>{{$index +1}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.research.doc_type}}</td>
+            <td>{{item.date}} </td>
+          </tr>
+        }
+        @empty {
+          <p>No comment found</p>
+        }
+    </tbody>
+  </table>
+</mat-card>
+  
+  
