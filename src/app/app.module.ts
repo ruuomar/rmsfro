@@ -49,12 +49,12 @@ import { ViewSupervisorComponent } from './pages/view-supervisor/view-supervisor
 import { ViewCommentComponent } from './page/view-comment/view-comment.component';
 import { DashbordSupervisorComponent } from './page/dashbord-supervisor/dashbord-supervisor.component';
 import { DashbordExaminerComponent } from './page/dashbord-examiner/dashbord-examiner.component';
-import { AddresearchComponent } from './page/addresearch/addresearch.component';
 import { PgoDashbordComponent } from './page/pgo-dashbord/pgo-dashbord.component';
 import { AllocationAllComponent } from './page/allocation-all/allocation-all.component';
 import { ReserchDocumentComponent } from './page/reserch-document/reserch-document.component';
 import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.component';
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
+import { ReserchCompletedComponent } from './pages/reserch-completed/reserch-completed.component';
 
 
 
@@ -90,12 +90,12 @@ import { OnotherDocumentComponent } from './page/onother-document/onother-docume
     ViewCommentComponent,
     DashbordSupervisorComponent,
     DashbordExaminerComponent,
-    AddresearchComponent,
     PgoDashbordComponent,
     AllocationAllComponent,
     ReserchDocumentComponent,
     AddUserDialogComponent,
     OnotherDocumentComponent,
+    ReserchCompletedComponent,
    
    
     

@@ -1,6 +1,7 @@
+<mat-card-title>Select Internal Examiner and Student</mat-card-title>
 <mat-card>
     <mat-card-content>
-      <form>
+      <form #form="ngForm">
         <mat-form-field appearance="outline">
           <mat-label>Select Examiner</mat-label>
           <mat-select [(ngModel)]="selectexaminer" name="supervisor">
@@ -14,7 +15,7 @@
             <mat-option *ngFor="let i of std" [value]="i.Stu_id">{{ i.std_name }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+        <button mat-raised-button color="primary" (click)="onSubmit(form)">Submit</button>
         <button mat-raised-button color="warn" (click)="goBack()">Back</button>
       </form>
     </mat-card-content>

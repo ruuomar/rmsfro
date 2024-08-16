@@ -8,11 +8,13 @@ import { AddUserComponent } from '../../pages/add-user/add-user.component';
   styleUrl: './add-user-dialog.component.css'
 })
 export class AddUserDialogComponent implements OnInit {
-  constructor(private dialog:MatDialog){}
+  constructor(private dialog: MatDialog) {}
+
   ngOnInit(): void {}
+
   openRegisterDialog() {
     const dialogRef = this.dialog.open(AddUserComponent, {
-      width: '600px', // Adjust the width as needed
+      width: '600px' // Adjust the width as needed
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -20,5 +22,5 @@ export class AddUserDialogComponent implements OnInit {
         console.log('Dialog result:', result);
       }
     });
-}
+  }
 }

@@ -13,13 +13,16 @@ export class SupervisorService {
 getAll(){
   return this.http.get(this.url+"getSupervisor")
 }
+
 getSupervisor(){
   return this.http.get(this.url+"getSuponly")
 }
+
 // for examiner
 getExaminer(){
   return this.http.get(this.url+"getExamineronly")
 }
+
 getSupervisorCount(): Observable<{ count: number }> {
   return this.http.get<{ count: number }>(this.url+"countSupervisor");
 }

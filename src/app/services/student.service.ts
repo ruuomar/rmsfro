@@ -1,24 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpServiceService } from './http-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-  isStudentPreviouslySelected(studentId: number): boolean {
-    throw new Error('Method not implemented.');
-  }
-  filter(arg0: (student: any) => any): any {
-    throw new Error('Method not implemented.');
-  }
+
   private url= String("http://127.0.0.1:8000/api/")
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,
+    private httpService:HttpServiceService ) { }
 
-  // add(body:any){
-  //   return this.http.post(this.url+"insertStudent",body)
-  // }
+ 
   add(body: any): Observable<any> {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders({
@@ -26,7 +21,25 @@ export class StudentService {
     });
     return this.http.post(this.url+"insertStudent", body, { headers });
   }
-  getAll(){
-    return this.http.get(this.url+"getStudent");
+
+
+  getAllStudent(){
+    const headers = this.httpService.getAuthHeaders();
+    return this.http.get(this.url+"getStudent", {headers})
   }
+  getSelfStudent(){
+    const headers = this.httpService.getAuthHeaders();
+    return this.http.get(this.url+"getStudentInfo",{headers})
+  }
+
+
+  getAllStudentSupervisor(){
+    return this.http.get(this.url+"students_not_allocated_to_supervisors");
+  }
+
+
+  getAllStudentExaminer(){
+    return this.http.get(this.url+"students_not_allocated_to_examiner")
+  }
+  
 }

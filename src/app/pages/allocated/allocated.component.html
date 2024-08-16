@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-content>
-    <form>
+    <form  #form="ngForm">
       <mat-form-field appearance="outline">
         <mat-label>Select Supervisor</mat-label>
         <mat-select [(ngModel)]="selectSupervisor" name="supervisor">
@@ -17,7 +17,7 @@
     
     
 
-      <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+      <button mat-raised-button color="primary" (click)="onSubmit(form)">Submit</button>
       <button mat-raised-button color="warn" (click)="goBack()">Back</button>
     </form>
   </mat-card-content>

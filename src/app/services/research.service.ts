@@ -16,5 +16,19 @@ export class ResearchService {
     return this.http.post(this.url, formData);
   }
 
+  private link = String("http://127.0.0.1:8000/api/")
+
+  getResearchById(research_id:any){
+    const link1 = `${this.link+"getreserachByID"}/${research_id}/`;
+    return this.http.get(link1)
+  }
+
+  updateResearch(research_id: string, data: any): Observable<any> {
+    const urls = `${this.url+"/updater2"}/${research_id}/`
+    return this.http.patch(urls, data);
+  }
+
+
+  
 
 }

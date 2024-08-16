@@ -10,13 +10,17 @@ import { StudentService } from '../../services/student.service';
 })
 export class ViewStudentComponent implements OnInit {
   list:any
-  constructor(private router:Router, private student:StudentService){}
+  constructor(private router:Router, 
+    private student:StudentService){}
+
+
   ngOnInit(): void {
     this.getAll()
     
   }
+
   getAll(){
-    this.student.getAll().subscribe((data)=>{
+    this.student.getAllStudent().subscribe((data)=>{
       this.list = data
 
     })

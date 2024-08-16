@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title>Reserch List</mat-card-title>
+    <table>
+        <thead>
+            <tr>
+                <th>Sn</th>
+                <th>Registration Number</th>
+                <th>Reserch</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @for (item of items; track $index) {
+                    <td>{{$index+1}}</td>
+                    <td>{{items.student.std_register}}</td>
+                    <td>{{items.reserch}}</td>
+                }
+                <td>
+                    <button color="big-success">view</button>
+            </tr>
+        </tbody>
+    </table>
+</mat-card>

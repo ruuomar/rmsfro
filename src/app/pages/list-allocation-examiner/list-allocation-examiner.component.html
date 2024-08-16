@@ -1,6 +1,6 @@
 <div>
     <mat-card>
-        <mat-card-title><mat-icon>list</mat-icon>Allocation of Examiner and Student</mat-card-title>
+        <mat-card-title> <mat-icon>list</mat-icon>Allocation of Examiner and Student</mat-card-title>
         </mat-card>
             <div >
                 <button mat-raised-button color="primary" (click)="onAllocation()" class="add"><mat-icon>add</mat-icon> Allocation</button> 
@@ -27,10 +27,10 @@
                         </td>
                     <td><button mat-raised-button color="warn"(click)="ondelete(item.allocate_Id)">delete</button></td>
                 </tr>
-                }
-                             
-                    
-           
+                }          
+                @empty {
+                    <p>No allocation ..</p>
+                } 
                  </tbody>
                 </table>
         </div>
