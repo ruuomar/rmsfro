@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ResearchService } from '../../services/research.service';
 
 @Component({
@@ -9,30 +9,106 @@ import { ResearchService } from '../../services/research.service';
   styleUrl: './onother-document.component.css'
 })
 export class OnotherDocumentComponent implements OnInit {
-  simpleForm!:FormGroup;
-  researchId!: string;
+
+  documentUPdate!:FormGroup;
+  selectedFile: File | null = null;
 
   constructor(
-    private route:ActivatedRoute,
+    private route:Router,
     private researchService:ResearchService,
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private activateRout:ActivatedRoute
   ){}
 
   ngOnInit(): void {
-    this.researchId = this.route.snapshot.paramMap.get('research_id')!;
-    this.loadResearchData();
-  }
-  
-  loadResearchData() {
-    this.researchService.getResearchById(this.researchId).subscribe((data) => {
-      this.simpleForm.patchValue(data);
-    });
-  }
-  onSubmit() {
-    this.researchService.updateResearch(this.researchId, this.simpleForm.value).subscribe(response => {
-      console.log('Research updated', response);
-      // handle success (e.g., navigate away, show a message)
-    });
+    this.activateRout.params.subscribe((data:any)=>{
+      const research_id = data.research_id
+      this.getbyId(research_id)
+    })
+    this.formControl()
   }
 
+
+  formControl() {
+    this.documentUPdate = this.fb.group({
+      research_id: [null],
+      doc_type: [null, Validators.required],
+      file: [null, Validators.required]
+    });
+  }
+  
+
+  getbyId(research_id:any){
+    this.researchService.getResearchById(research_id).subscribe((data:any)=>{
+      console.log(data)
+       // tunahamisha data tunaziweka hpa
+      this.documentUPdate.get('research_id')?.setValue(data.research_id)
+      this.documentUPdate.get('doc_type')?.setValue(data.doc_type)
+   
+    })
+  }
+  onFileSelected(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      this.selectedFile = fileInput.files[0];
+      console.log('File selected:', this.selectedFile); // Debugging log
+  
+      // Update the form control with the selected file
+      this.documentUPdate.patchValue({
+        file: this.selectedFile
+      });
+  
+      // Mark the file control as dirty/touched to ensure form validation triggers
+      this.documentUPdate.get('file')?.updateValueAndValidity();
+    }
+  }
+  
+
+  // onSave(){
+  //   const values =this.documentUPdate.value
+  //     const research_id= this.documentUPdate.value.research_id
+  //     this.researchService.updateResearch(research_id,values).subscribe((newdata:any)=>{
+  //       console.log(newdata)
+  //     })
+  // }
+
+  onSave() {
+    console.log('Form Valid:', this.documentUPdate.valid);
+    console.log('Selected File:', this.selectedFile);
+
+    if (this.documentUPdate.valid && this.selectedFile) {
+        const formData = new FormData();
+        formData.append('research_id', this.documentUPdate.get('research_id')!.value);
+        formData.append('doc_type', this.documentUPdate.get('doc_type')!.value);
+        formData.append('file', this.selectedFile);
+
+        console.log('FormData contents:');
+        formData.forEach((value, key) => console.log(`${key}: ${value}`));
+
+        this.researchService.updateResearch(this.documentUPdate.get('research_id')!.value, formData).subscribe(
+            (newData: any) => {
+                console.log('Success:', newData);
+            },
+            (error) => {
+                console.error('Error:', error);
+            }
+        );
+    } else {
+        console.log('Failed: Form is invalid or no file selected');
+    }
+
+
 }
+
+  
+  
+  
+  
+}
+
+    
+  
+  
+
+  
+

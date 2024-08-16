@@ -91,8 +91,8 @@ constructor(
   //   });
   
   // }
-  onEdit(doc_id: string) {
-    this.router.navigate(['/updateDocument', doc_id]);
+  onEdit(research_id:any) {
+    this.router.navigateByUrl('updateDocument/'+research_id);
   }
   
 

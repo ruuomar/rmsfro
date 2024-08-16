@@ -12,10 +12,11 @@ export class MySubmitionComponent implements OnInit {
 
   constructor(
     private router:Router,
-     private documentService:DocumentService){}
+    private documentService:DocumentService){}
+
+
   ngOnInit(): void {
     this.formConfigaration()
-    
   }
 
   onFileSelected(event: Event): void {
