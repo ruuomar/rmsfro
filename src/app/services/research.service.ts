@@ -20,9 +20,9 @@ export class ResearchService {
     return this.http.get(link1, {headers})
   }
   updateResearch(research_id: string, data: FormData): Observable<any> {
-    const headers = this.httpService.getAuthHeaders(); // Ensure headers are correctly set
+    const headers = this.httpService.getAuthHeaders(); 
     const urls = `${this.url}updater2/${research_id}/`;
-    return this.http.patch(urls, data, { headers: { 'Accept': 'application/json' } }); // No 'Content-Type' header
+    return this.http.patch(urls, data, { headers: { 'Accept': 'application/json' } });
 }
 
 
