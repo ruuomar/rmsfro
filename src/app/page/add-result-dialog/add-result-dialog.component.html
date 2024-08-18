@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Add Result</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <mat-label>Marks</mat-label>
+      <input matInput [(ngModel)]="data.marks" name="marks" type="number">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.marks">Submit</button>
+</mat-dialog-actions>

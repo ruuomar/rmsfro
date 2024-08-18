@@ -11,7 +11,8 @@ import jsPDF from 'jspdf';
 export class AllocationAllComponent implements OnInit {
 list: any;
 allocations: any;
-displayedColumns: string[] = ['supervisor', 'students'];
+// displayedColumns: string[] = ['supervisor', 'students'];
+
 ngOnInit(): void {
   this.allocationAll.getAllAllocation().subscribe(data => {
     this.allocations = data;

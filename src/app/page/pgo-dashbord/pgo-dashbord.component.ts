@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SupervisorService } from '../../services/supervisor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pgo-dashbord',
@@ -8,11 +9,11 @@ import { SupervisorService } from '../../services/supervisor.service';
 })
 export class PgoDashbordComponent  implements OnInit{
   supervisorCount: number | null = null;
-
   ngOnInit(): void {
 
   }
-  constructor(private supervisorService:SupervisorService){}
+  constructor(private supervisorService:SupervisorService,private router:Router){}
+
 
   fetchSupervisorCount(): void {
     this.supervisorService.getSupervisorCount().subscribe({
@@ -22,5 +23,11 @@ export class PgoDashbordComponent  implements OnInit{
       
     })
   }
-
+  
+  viewStudent() {
+      return this.router.navigateByUrl('view')
+  }
+  viewSupervisor() {
+    return this.router.navigateByUrl('viewSupervisor')
+  }
 }

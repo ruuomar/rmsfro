@@ -11,15 +11,18 @@ export class AddUserDialogComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+ 
 
-  openRegisterDialog() {
+  openRegisterUserDialog(): void {
     const dialogRef = this.dialog.open(AddUserComponent, {
-      width: '600px' // Adjust the width as needed
+      width: '400px',
+      data: {}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('Dialog result:', result);
+        console.log('User data:', result);
+        // Unaweza kufanya kitu na data ya mtumiaji hapa, kama kuokoa kwa database.
       }
     });
   }

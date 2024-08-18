@@ -1,0 +1,47 @@
+.user-card {
+    max-width: 100%; /* Responsive width */
+    margin: 20px auto; /* Center the card horizontally */
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .user-card h2 {
+    font-size: 1.5em;
+    margin: 0;
+  
+    color: #333;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f1f1f1;
+  }
+  
+  
+  button {
+    margin-right: 8px;
+  }
+  
+  button:last-child {
+    margin-right: 0;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 0.5rem; 
+  }
+    

@@ -30,7 +30,6 @@ onComplete: any;
     this.documentservice.getAll().subscribe((data)=>{
       this.list = data;
       console.log(data);
-      
     })
 
     // this.role = 'Supervisor';

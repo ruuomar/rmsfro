@@ -31,6 +31,7 @@ import { ReserchDocumentComponent } from './page/reserch-document/reserch-docume
 import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.component';
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
 import { StudentDashboadComponent } from './page/student-dashboad/student-dashboad.component';
+import { AddResultComponent } from './page/add-result/add-result.component';
 
 const routes: Routes = [{
   path: '',component: MainLayoutComponent,
@@ -64,8 +65,9 @@ const routes: Routes = [{
     {path:'allocationAll',component:AllocationAllComponent},
     {path: 'reserchDocument',component:ReserchDocumentComponent},
     {path: 'dialogUserAdd',component:AddUserDialogComponent},
-    {path:'updateDocument/:research_id',component:OnotherDocumentComponent},
-    {path: 'completed',component:ReserchDocumentComponent}
+    {path: 'updateDocument/:research_id',component:OnotherDocumentComponent},
+    {path: 'completed',component:ReserchDocumentComponent},
+    {path: 'addResult/',component:AddResultComponent},
   ]
 },
 {path: 'login/registration', component:RegComponent},

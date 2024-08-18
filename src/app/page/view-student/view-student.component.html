@@ -1,39 +1,37 @@
-<div>
-    <mat-card>
-        <mat-card-title><i class="fas fa-list  text-black"></i>User List</mat-card-title>
-        </mat-card>
-            <div >
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>SN</th>
-                            <th>Full Name</th>
-                            <th>program</th>
-                            <th>regstration Number</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (item of list; track $index){
-                            <tr>   
-                                <td>{{$index+1}}</td>
-                                <td>{{item.std_name}}</td>
-                                <td>{{item.Std_program}}</td>
-                                <td>{{item.std_regNumber}}</td>
-                                
-                        <td>
-                            <!-- <mat-icon color="warn" (click)="ondelete(item. userID)">delete</mat-icon>
-                            <mat-icon color="primary" (click)="onupdate(item.userID)">edit</mat-icon> -->
-                            <!-- <button mat-raised-button color="warn" (click)="ondelete(item. userID)"><mat-icon >delete</mat-icon></button>
-                            <button mat-raised-button color="primary" (click)="onupdate(item.userID)"><mat-icon>update</mat-icon></button> -->
-                        </td></tr>
-                }
-                             
-                    
-           
-                 </tbody>
-                </table>
-        </div>
-        
-        
-</div>
+<mat-card class="user-card">
+    <mat-card-title>
+      <h2>Student list</h2>
+    </mat-card-title>
+        <div ><table class="table">
+            <thead>
+                <tr>
+                    <th>SN</th>
+                    <th>Full Name</th>
+                    <th>program</th>
+                    <th>regstration Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of list; track $index){
+                    <tr>   
+                        <td>{{$index+1}}</td>
+                        <td>{{item.std_name}}</td>
+                        <td>{{item.Std_program}}</td>
+                        <td>{{item.std_regNumber}}</td>
+                        
+                <td>
+                    <!-- <mat-icon color="warn" (click)="ondelete(item. userID)">delete</mat-icon>
+                    <mat-icon color="primary" (click)="onupdate(item.userID)">edit</mat-icon> -->
+                    <!-- <button mat-raised-button color="warn" (click)="ondelete(item. userID)"><mat-icon >delete</mat-icon></button>
+                    <button mat-raised-button color="primary" (click)="onupdate(item.userID)"><mat-icon>update</mat-icon></button> -->
+                </td></tr>
+        }
+                     
+            
+   
+         </tbody>
+        </table></div>
+</mat-card>        
+
+
 

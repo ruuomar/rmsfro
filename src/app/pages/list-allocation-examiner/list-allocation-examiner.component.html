@@ -19,13 +19,13 @@
                         @for (item of list; track $index){
                             <tr>   
                                 <td>{{$index+1}}</td>
-                                <td>{{item.supervisor.user.first_name}} {{ item.supervisor.user.last_name }}</td>
+                                <td>{{item.supervisor}}</td>
                                 <td>{{item.student.std_name}}</td>
                                 <td>{{item.student.std_regNumber}}</td>
                                 <td>{{item.student.Std_program}}</td>
                         <td>
                         </td>
-                    <td><button mat-raised-button color="warn"(click)="ondelete(item.allocate_Id)">delete</button></td>
+                    <td><button mat-raised-button color="warn"(click)="onDelete(item.allocate_Id)">delete</button></td>
                 </tr>
                 }          
                 @empty {

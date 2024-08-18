@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AllocationService } from '../../services/allocation.service';
 import { SupervisorService } from '../../services/supervisor.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-list-allocation-examiner',
@@ -13,6 +14,7 @@ list: any;
 constructor(private router:Router,
   private allocation:AllocationService,
   private supervisor:SupervisorService,
+  private snackBar: MatSnackBar,
 ){}
 
 ngOnInit(): void {
@@ -31,6 +33,19 @@ getAll(){
  })
 } 
 
-ondelete(arg0: any) {}
+onDelete(list: any) {
+  this.allocation.delete(list).subscribe(
+    (data) => {
+      this.getAll();
+      // Show success message
+      this.snackBar.open('Item deleted successfully!', 'Close', {
+        duration: 3000, // Duration in milliseconds
+        verticalPosition: 'top', // Positioning the snackbar at the top
+      });
+    },
+    
+  );
+
+}
 
 }

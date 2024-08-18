@@ -17,9 +17,9 @@ export class AllocationService {
 addallocation(body:any){
     return this.http.post(this.url+"insertallocation",body)
   }
-
+// for supervisoronly
 getAllSupervisor(){
-  return this.http.get(this.url+"supervisor_allocations")
+  return this.http.get(this.url+"supervisorAllocation")
  }
 
 //  for examiner

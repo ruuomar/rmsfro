@@ -1,40 +1,50 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>Allocation: Supervisor and Student List</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+        
+        <div style="display: flex; justify-content: space-between; padding: 10px; background-color: #f5f5f5; border-radius: 5px; box-shadow: 0px 2px 5px rgba(0,0,0,0.2); margin-bottom: 20px;">
+            <button mat-raised-button color="primary" (click)="generatePDF()">
+                Download PDF
+            </button>
+            
+            <button mat-raised-button color="primary" (click)="onAllocation()" class="add">
+                <mat-icon>add</mat-icon> Allocation
+            </button>
+        </div>
 
-    <mat-card>
-        <mat-card-header>
-            <mat-card-subtitle>allocaton supervisor and studentList</mat-card-subtitle>
-        </mat-card-header>
-       
-            <mat-card-content>
-                <button mat-raised-button color="primary" (click)="onAllocation()" class="add"><mat-icon>add</mat-icon> Allocation</button> 
-                <table class ="table">
-                    <thead>
-                        <tr>
-                            <th>SN</th>
-                            <th>Supervisor Name</th>
-                            <th>Student Name</th>
-                            <th>Registration Number</th>
-                            <th>Program</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (item of list; track $index){
-                            <tr>   
-                                <td>{{$index+1}}</td>
-                                <td>{{item.supervisor.user.first_name}}  {{ item.supervisor.user.last_name }}</td>
-                                <td>{{item.student.std_name}}</td>
-                                <td>{{item.student.std_regNumber}}</td>
-                                <td>{{item.student.Std_program}}</td>
-                        <td>
-                    <mat-icon color="warn" (click)= "ondelete(item.allocate_Id)">delete</mat-icon>
-                     <mat-icon color="primary" click ="onedit()">edit</mat-icon>
-                        </td>
-                    
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Supervisor Name</th>
+                    <th>Student Name</th>
+                    <th>Registration Number</th>
+                    <th>Program</th>
+                    <th>Action</th>
                 </tr>
-                }@empty {
-                    <p>No allocation ..</p>
-                }
-                 </tbody>
-                </table>
-            </mat-card-content>
-    </mat-card>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let item of list; let i = index">
+                    <ng-container *ngFor="let student of item.students; let j = index">
+                        <tr>   
+                            <td *ngIf="j === 0" [attr.rowspan]="item.students.length">
+                                {{ item.supervisor }}
+                            </td>
+                            <td>{{ student.std_name }}</td>
+                            <td>{{ student.std_regNumber }}</td>
+                            <td>{{ student.Std_program }}</td>
+                            <td>
+                                <mat-icon color="warn" (click)="ondelete(item.allocate_Id)">delete</mat-icon>
+                            </td> 
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <tr *ngIf="list.length === 0">
+                    <td colspan="6">No allocation ..</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

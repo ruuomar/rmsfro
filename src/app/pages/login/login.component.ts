@@ -31,42 +31,69 @@ errorMsg: any;
      })
   }
   // value zilizopitishwa kwenye input kuwa ushazishika
-  onLogin(){
-    const data = this.logForm.value
-    this.auth.login(data).subscribe((response:any)=>{
-      // console.table(response)
-    this.auth.storeToken(response.access)
-    
-    const payload2 = this.auth.decodeToken() 
-    this.storeData.setUserID(payload2.user_id)
-    this.storeData.setroleToStore(payload2.role)
-    
+  onLogin() {
+    const data = this.logForm.value;
+    this.auth.login(data).subscribe(
+      (response: any) => {
+        this.auth.storeToken(response.access);
+        const payload2 = this.auth.decodeToken();
+        this.storeData.setUserID(payload2.user_id);
+        this.storeData.setroleToStore(payload2.role);
+  
+        if (payload2.role === 'Admin') {
+          this.router.navigateByUrl('Dashboard');
+        } else if (payload2.role === 'Student') {
+          this.checkStudentRegistration(payload2.user_id);
+        } else if (payload2.role === 'Supervisor') {
+          this.router.navigateByUrl('superDashbord');
+        } else if (payload2.role === 'Examiner') {
+          this.router.navigateByUrl('examinerDashbord');
+        } else if (payload2.role === 'PGO') {
+          this.router.navigateByUrl('pgoDashbord');
+        }
+      },
+      (error) => {
+        // Handle error response
+        this.errorMsg = 'Invalid email or password. Please try again.';
+      }
+    );
+  }
+  
 
-    if (payload2.role == 'Admin'){
-      this.router.navigateByUrl('Dashboard')
-    }
+// onLogin() {
+//   const data = this.logForm.value;
+//   this.auth.login(data).subscribe(
+//     (response: any) => {
+//       this.auth.storeToken(response.access);
+//       const payload2 = this.auth.decodeToken();
+//       this.storeData.setUserID(payload2.user_id);
+//       this.storeData.setroleToStore(payload2.role);
 
-    else if (payload2.role == "Student"){
-      this.checkStudentRegistration(payload2.user_id);
-      // this.router.navigateByUrl('stdDashboad')
-    }
-    else if(payload2.role == "Supervisor"){ 
-      this.router.navigateByUrl('superDashbord')
-    }
-      
-    else if(payload2.role == "Examiner"){
-      this.router.navigateByUrl('examinerDashbord')
-    }
-    else if(payload2.role == "PGO"){
-      this.router.navigateByUrl('pgoDashbord')
-    }
-      
-    // this.router.navigateByUrl('Dashboard')
-    // alert('login successful');
-    
-    })
-// console.log(data)
- }
+//       switch (payload2.role) {
+//         case 'Admin':
+//           this.router.navigateByUrl('Dashboard');
+//           break;
+//         case 'Student':
+//           this.checkStudentRegistration(payload2.user_id);
+//           break;
+//         case 'Supervisor':
+//           this.router.navigateByUrl('superDashbord');
+//           break;
+//         case 'Examiner':
+//           this.router.navigateByUrl('examinerDashbord');
+//           break;
+//         case 'PGO':
+//           this.router.navigateByUrl('pgoDashbord');
+//           break;
+//       }
+//     },
+//     (error) => {
+//       // Handle error response
+//       this.errorMsg = 'Invalid email or password. Please try again.';
+//     }
+//   );
+// }
+
 
  checkStudentRegistration(userId: number) {
   this.auth.checkStudentRegistration(userId).subscribe((isRegistered: boolean) => {

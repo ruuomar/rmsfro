@@ -54,7 +54,10 @@ import { AllocationAllComponent } from './page/allocation-all/allocation-all.com
 import { ReserchDocumentComponent } from './page/reserch-document/reserch-document.component';
 import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.component';
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
-import { ReserchCompletedComponent } from './pages/reserch-completed/reserch-completed.component';
+import { AddResultComponent } from './page/add-result/add-result.component';
+import { AddResultDialogComponent } from './page/add-result-dialog/add-result-dialog.component';
+
+
 
 
 
@@ -95,7 +98,10 @@ import { ReserchCompletedComponent } from './pages/reserch-completed/reserch-com
     ReserchDocumentComponent,
     AddUserDialogComponent,
     OnotherDocumentComponent,
-    ReserchCompletedComponent,
+    AddResultComponent,
+    AddResultDialogComponent,
+  
+ 
    
    
     

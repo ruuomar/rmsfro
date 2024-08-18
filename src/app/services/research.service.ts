@@ -19,12 +19,17 @@ export class ResearchService {
     const link1 = `${this.url+"getreserachByID"}/${research_id}/`;
     return this.http.get(link1, {headers})
   }
+
   updateResearch(research_id: string, data: FormData): Observable<any> {
     const headers = this.httpService.getAuthHeaders(); 
     const urls = `${this.url}updater2/${research_id}/`;
     return this.http.patch(urls, data, { headers: { 'Accept': 'application/json' } });
 }
-
+  //  kwajili ya kuona examiner husika tu
+  getDocumentExaminer(){
+    const headers = this.httpService.getAuthHeaders();
+    
+  }
 
   
 

@@ -2,6 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
 import { DocumentService } from '../../services/document.service';
+import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { DocumentDialogComponent } from '../document-dialog/document-dialog.component';
+import { AddResultDialogComponent } from '../add-result-dialog/add-result-dialog.component';
+import { ResultService } from '../../services/result.service';
+import { CommentComponent } from '../comment/comment.component';
+import { CommentService } from '../../services/comment.service';
 
 
 @Component({
@@ -10,115 +18,102 @@ import { DocumentService } from '../../services/document.service';
   styleUrl: './reserch-document.component.css'
 })
 export class ReserchDocumentComponent implements OnInit {
-//   documentForm: FormGroup;
 
-//   constructor(private fb: FormBuilder, private document:DocumentService) {
-//     this.documentForm = this.fb.group({
-//       title: ['', Validators.required],
-//       doc_type: ['concept note', Validators.required],
-//       file: [null, Validators.required]
-//     });
-//   }
+  items: any
+  constructor(
+    private router:Router,
+    private documentservice:DocumentService, 
+    private commentservice:CommentService,
+    private resultService:ResultService,
+    private sanitizer: DomSanitizer,
+    private dialog:MatDialog,
+  ){}
+ 
 
-//   ngOnInit(): void {}
-
-//   onFileChange(event: any) {
-//     const file = event.target.files[0];
-//     this.documentForm.patchValue({
-//       file: file
-//     });
-//   }
-
-//   onSave() {
-//     if (this.documentForm.valid) {
-//       const formData = new FormData();
-//       formData.append('title', this.documentForm.get('title')?.value);
-//       formData.append('doc_type', this.documentForm.get('doc_type')?.value);
-//       formData.append('file', this.documentForm.get('file')?.value);
-
-//       this.document.AddResearch(formData).subscribe(
-//         response => {
-//           console.log('Research submitted successfully', response);
-//           // Handle success (e.g., show a success message, clear form, etc.)
-//         },
-//         error => {
-//           console.error('Error submitting research', error);
-//           // Handle error (e.g., show an error message)
-//         }
-//       );
-//     }
-//   }
-// }
-
-// researchForm!: FormGroup;
-
-//   constructor(private documentService: DocumentService) {}
-
-//   ngOnInit(): void {
-//     this.configureResearchForm();
-//   }
-
-//   configureResearchForm() {
-//     this.researchForm = new FormGroup({
-//       title: new FormControl('', Validators.required),
-//       doc_type: new FormControl('concept note', Validators.required),
-//       file: new FormControl('', Validators.required)
-//     });
-//   }
-
-//   onFileChange(event: any) {
-//     const file = event.target.files[0];
-//     this.researchForm.patchValue({
-//       file: file
-//     });
-//   }
-
-//   onSave() {
-//     if (this.researchForm.valid) {
-//       const formData = new FormData();
-//       formData.append('title', this.researchForm.get('title')?.value);
-//       formData.append('doc_type', this.researchForm.get('doc_type')?.value);
-//       formData.append('file', this.researchForm.get('file')?.value);
-
-//       this.documentService.AddResearch(formData).subscribe(
-//         (data: any) => {
-//           console.log('Research submitted successfully', data);
-//           // Optionally, clear the form or handle success
-//           this.researchForm.reset();
-//         },
-//         error => {
-//           console.error('Error submitting research', error);
-//           // Optionally, handle error feedback
-//         }
-//       );
-//     }
-//   }
-
-myForm: FormGroup;
-  selectedFile: File | null = null;
-
-  constructor(private formBuilder: FormBuilder) {
-    this.myForm = this.formBuilder.group({});
-  }
-  ngOnInit(): void {}
-
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
-      console.log('File selected:', this.selectedFile);
-    }
+  ngOnInit(): void {
+    this.getDocumentCompleted();
   }
 
-  onSubmit(): void {
-    if (!this.selectedFile) {
-      console.error('No file selected!');
-      return;
+  getDocumentCompleted() {
+    this.documentservice.getAll().subscribe((data) => {
+      // Filter to include only completed research items
+      this.items = data.filter((item: any) => item.is_completed === true);
+      console.log(this.items);
+    });
+  }
+
+  viewfile(research_id: string): void {
+    this.documentservice.getfile(research_id).subscribe((blob) => {
+      const file = new Blob([blob], { type: blob.type });
+      const url = window.URL.createObjectURL(file);
+
+      // hapa ina open this.dialog
+      this.dialog.open(DocumentDialogComponent, {
+        data: { url },
+        width: '100%',
+        height: '100%'
+      });
+    });
+  
+  }
+
+  // onComment(research_id:any){
+  //   console.log(research_id);
+    
+  //   return this.router.navigate(['/comment', research_id]);
+  // }
+
+  // onAddResult(){
+  //   return this.router.navigateByUrl('addResult')
+  // }
+
+  openAddResultDialog(research_id: string): void {
+    const dialogRef = this.dialog.open(AddResultDialogComponent, {
+      width: '300px',
+      data: { marks: 0 }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        console.log(`Research ID: ${research_id}, Marks: ${result}`);
+        // Implement the logic to save the result, e.g., call a service
+        this.resultService.addResult(research_id, result).subscribe((data)=>{
+          console.log('Result saved successfully:', data);
+        })
+      }
+    });
+  }
+
+  openCommentDialog(research_id: string): void {
+    const dialogRef = this.dialog.open(CommentComponent, {
+      width: '400px',
+      data: {description:''} // Pass any data if needed
+    });
+
+  //   dialogRef.afterClosed().subscribe(description => {
+  //     // console.log(`Research ID: ${research_id}, Description: ${result}`);
+  //     if (description !== undefined) {
+  //       console.log(`Research ID: ${research_id}, description: ${description}`);
+  //       // Implement the logic to save the result, e.g., call a service
+  //       this.commentservice.addComment(research_id, description).subscribe((data)=>{
+  //         console.log('Result saved successfully:', data);
+  //       })
+  //     }
+  //   });
+  // }
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      const description = result.description || '';  // Make sure to extract the correct field
+      console.log(`Research ID: ${research_id}, description: ${description}`);
+      this.commentservice.addComment(research_id, description).subscribe(
+        (data) => {
+          console.log('Result saved successfully:', data);
+        },
+        (error) => {
+          console.error('Error saving comment:', error);
+        }
+      );
     }
-
-    const formData = new FormData();
-    formData.append('file', this.selectedFile, this.selectedFile.name);
-
-}
+  });
+  }
 }
