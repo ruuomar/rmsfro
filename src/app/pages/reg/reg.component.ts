@@ -39,7 +39,7 @@ export class RegComponent implements OnInit {
 
         setTimeout(() => {
           this.router.navigateByUrl('login');
-        }, 2000); // Redirect after 2 seconds
+        }, 2000); // 
       },
       (error) => {
         console.error(error);

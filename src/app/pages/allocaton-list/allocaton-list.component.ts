@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AllocationService } from '../../services/allocation.service';
 import { Router } from '@angular/router';
 import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-allocaton-list',
@@ -46,27 +48,39 @@ ondelete(list:any){
 
 generatePDF() {
   const doc = new jsPDF();
+  doc.text('Supervisor and Student Allocation List', 14, 16);
 
-  let y = 10; // Vertical spacing
+  const head = [['Supervisor', 'Student Name', 'Registration Number', 'Program']];
+  const data = this.list.flatMap((item: { students: any[]; supervisor: any; }) => 
+    item.students.map((student, index) => [
+      index === 0 ? item.supervisor : '', // Corrected typo here
+      student.std_name,
+      student.std_regNumber,
+      student.Std_program
+    ])
+  );
 
-  doc.setFontSize(12);
-  doc.text('Supervisor and Student Allocations', 10, y);
-  y += 10;
-
-  this.allocations.forEach((allocation: { supervisor: any; students: any[]; }) => {
-    doc.setFontSize(10);
-    doc.text(`Supervisor: ${allocation.supervisor}`, 10, y);
-    y += 10;
-
-    allocation.students.forEach(student => {
-      doc.text(`- ${student}`, 20, y);
-      y += 10;
-    });
-
-    y += 10; // Add extra space between groups
+  (doc as any).autoTable({
+    head: head,
+    body: data,
+    startY: 20,
   });
 
-  doc.save('allocations.pdf');
-}
+  doc.save('allocation_list.pdf');
+  }
+
+
+  exportToExcel(): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.list.flatMap((item: any) =>
+      item.students.map((student: any, index: number) => ({
+        Supervisor: index === 0 ? item.supervisor : '',
+        'Student Name': student.std_name,
+        'Registration Number': student.std_regNumber,
+        Program: student.Std_program
+      }))
+    ));
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    XLSX.writeFile(workbook, 'allocation_list.xlsx');
+  }
 
 }

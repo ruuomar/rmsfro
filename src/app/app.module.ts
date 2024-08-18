@@ -56,6 +56,7 @@ import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.c
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
 import { AddResultComponent } from './page/add-result/add-result.component';
 import { AddResultDialogComponent } from './page/add-result-dialog/add-result-dialog.component';
+import { ResearchComplitedComponent } from './page/research-complited/research-complited.component';
 
 
 
@@ -100,6 +101,7 @@ import { AddResultDialogComponent } from './page/add-result-dialog/add-result-di
     OnotherDocumentComponent,
     AddResultComponent,
     AddResultDialogComponent,
+    ResearchComplitedComponent,
   
  
    

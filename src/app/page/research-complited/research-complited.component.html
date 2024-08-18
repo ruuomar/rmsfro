@@ -1,0 +1,21 @@
+<mat-card>
+<mat-card-header>
+    <mat-card-title>REsearch Coplited</mat-card-title>
+    <mat-card-content>
+        <table>
+            <thead>
+                <tr>
+                    <th>sn</th>
+                    <th>REsearch</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @for (item of items; track $index) {}
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card-header>
+</mat-card>

@@ -32,6 +32,7 @@ import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.c
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
 import { StudentDashboadComponent } from './page/student-dashboad/student-dashboad.component';
 import { AddResultComponent } from './page/add-result/add-result.component';
+import { ResearchComplitedComponent } from './page/research-complited/research-complited.component';
 
 const routes: Routes = [{
   path: '',component: MainLayoutComponent,
@@ -68,6 +69,7 @@ const routes: Routes = [{
     {path: 'updateDocument/:research_id',component:OnotherDocumentComponent},
     {path: 'completed',component:ReserchDocumentComponent},
     {path: 'addResult/',component:AddResultComponent},
+    {path: 'reserchCompleted',component:ResearchComplitedComponent}
   ]
 },
 {path: 'login/registration', component:RegComponent},
