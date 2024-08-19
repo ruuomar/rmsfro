@@ -11,12 +11,15 @@ import { AllocationService } from '../../services/allocation.service';
 export class DashboadComponent implements OnInit {
 userCount: any;
 allocationCount:number=0;
-  constructor(private user:UserService,private allocation:AllocationService){}
+  constructor(private user:UserService,
+    private allocation:AllocationService,
+    private router:Router){}
   ngOnInit(): void {
     this.fetchUserCount(),
     this.fechAllocationCount()
    
   }
+  
   fetchUserCount(): void {
     this.user.getAccountUser().subscribe(
       (data) => {
@@ -28,6 +31,7 @@ allocationCount:number=0;
       }
     );
   }
+
   fechAllocationCount():void{
       this.allocation.getfechAllocation().subscribe((data)=>{
         this.allocationCount=data
@@ -35,4 +39,10 @@ allocationCount:number=0;
       })
   }
 
+  listUser(){
+    this.router.navigateByUrl('listUser()')
+  }
+  allocationList(){
+
+  }
 }

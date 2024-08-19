@@ -2,6 +2,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpServiceService } from './http-service.service';
 
+export interface ResultData {
+  total_marks: number;
+  devider: number;
+  average: number;
+  grade: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,5 +21,9 @@ export class ResultService {
     const body = { research_id, result };
     const headers = this.httpService.getAuthHeaders();
     return this.http.post(this.url + "insertresult", body, { headers });
+}
+getResult() {
+  const headers = this.httpService.getAuthHeaders();
+  return this.http.get<ResultData>(this.url + "studentgetresult", { headers });
 }
 }

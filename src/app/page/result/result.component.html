@@ -1,22 +1,27 @@
 <mat-card>
-    
-    <table>
+    <mat-card-header>
+      <mat-card-title>Research Results</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table  class="mat-elevation-z8" >
         <thead>
-            <tr>
-                <th>sn</th>
-                <th></th>
-                <th>section</th>
-                <th>action</th>
-            </tr>
+          <tr>
+            <th>Title</th>
+            <th>Total Marks</th>
+            <th>Average Marks</th>
+            <th>Grade</th>
+          </tr>
         </thead>
         <tbody>
-           <tr>
-            @for (item of items; track $index) {
-                <td></td>
-                <td> </td>
-                <td></td>
-            }
-           </tr>
+          <tr>
+            <td>{{ results.title}}</td> 
+            <td>{{ results.total_marks }}</td>
+            <td>{{ results.average }}</td>
+            <td>{{ results.grade }}</td>
+          </tr>
         </tbody>
-    </table>
-</mat-card>
+      </table>
+     
+    </mat-card-content>
+  </mat-card>
+  

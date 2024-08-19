@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { StoreDataaTokenService } from '../../services/store-dataa-token.service';
+import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 
 @Component({
@@ -28,8 +29,19 @@ errorMsg: any;
      this.logForm=new FormGroup({
       email:new FormControl('',Validators.required),
       password:new FormControl('',Validators.required),
-     })
+      confirmPassword: new FormControl('', Validators.required)
+    },
+    { validators: this.passwordMatchValidator });
   }
+  passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const formGroup = control as FormGroup;
+  const password = formGroup.get('password')?.value;
+  const confirmPassword = formGroup.get('confirmPassword')?.value;
+  
+  return password === confirmPassword ? null : { passwordMismatch: true };
+  }
+
+  
   // value zilizopitishwa kwenye input kuwa ushazishika
   onLogin() {
     const data = this.logForm.value;

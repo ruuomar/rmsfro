@@ -1,10 +1,10 @@
-
 <form [formGroup]="logForm" class="log-form">
   <div class="main">
     <div class="logo-container text-center mb-3">
       <img src="./assets/suza.png" class="rounded-circle logo" alt="State University of Zanzibar">
       <p class="university-name">State University of Zanzibar</p>
     </div>
+
     <div class="form-floating mb-3">
       <input type="email" class="form-control"placeholder="name@example.com" formControlName="email">
       <label for="floatingInput">Email Address</label>
@@ -12,6 +12,7 @@
         Email is required.
       </div>
     </div>
+
     <div class="form-floating mb-3">
       <input type="password" formControlName="password" class="form-control"  placeholder="Password">
       <label for="floatingPassword">Password</label>
@@ -19,12 +20,26 @@
         Password is required.
       </div>
     </div>
+
+    <div class="form-floating mb-3">
+      <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password">
+      <label for="floatingConfirmPassword">Confirm Password</label>
+      <div *ngIf="logForm.get('confirmPassword')?.invalid && logForm.get('confirmPassword')?.touched" class="error-message">
+        Password confirmation is required.
+      </div>
+    </div>
+
+    <div *ngIf="logForm.errors?.['passwordMismatch'] && logForm.get('confirmPassword')?.touched" class="error-message">
+      Passwords do not match.
+    </div>
+    
     <div class="login text-center">
       <button mat-raised-button color="primary" [disabled]="logForm.invalid" (click)="onLogin()">Login</button>
       <div *ngIf="errorMsg" class="error-message">
         {{ errorMsg }}
       </div>
     </div>
+    
     <div class="form-group d-flex justify-content-between mt-3 mb-3">
       <a href="#" class="text-primary">Forgot Password?</a>
     </div>

@@ -2,13 +2,13 @@
   <div class="headers">
     <p>Admin</p>
     <div class="dashboard-container">
-      <div class="account-box">
+      <div class="account-box"  (click)="listUser()">
           <h2>{{userCount}}</h2>
           <mat-icon>people</mat-icon>
-          <p>ToTal Users</p>
+          <p>Total Users</p>
       </div>
 
-      <div class="account-box">
+      <div class="account-box" (click)="allocationList()">
           <h2>{{allocationCount}}</h2>
           <mat-icon>assignment</mat-icon> 
           <p>Allocation list</p>
