@@ -7,6 +7,7 @@ export interface ResultData {
   devider: number;
   average: number;
   grade: string;
+  tittle: string;
 }
 
 @Injectable({

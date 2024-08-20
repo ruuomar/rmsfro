@@ -33,6 +33,7 @@ import { OnotherDocumentComponent } from './page/onother-document/onother-docume
 import { StudentDashboadComponent } from './page/student-dashboad/student-dashboad.component';
 import { AddResultComponent } from './page/add-result/add-result.component';
 import { ResearchComplitedComponent } from './page/research-complited/research-complited.component';
+import { AddResultDialogComponent } from './page/add-result-dialog/add-result-dialog.component';
 
 const routes: Routes = [{
   path: '',component: MainLayoutComponent,
@@ -63,9 +64,10 @@ const routes: Routes = [{
     {path: 'superDashbord',component:DashbordSupervisorComponent},
     {path: 'examinerDashbord', component:DashbodExaminerComponent},
     {path: 'pgoDashbord',component:PgoDashbordComponent},
-    {path:'allocationAll',component:AllocationAllComponent},
+    {path: 'allocationAll',component:AllocationAllComponent},
     {path: 'reserchDocument',component:ReserchDocumentComponent},
     {path: 'dialogUserAdd',component:AddUserDialogComponent},
+    {path: 'dialogResult',component:AddResultDialogComponent},
     {path: 'updateDocument/:research_id',component:OnotherDocumentComponent},
     {path: 'completed',component:ReserchDocumentComponent},
     {path: 'addResult/',component:AddResultComponent},

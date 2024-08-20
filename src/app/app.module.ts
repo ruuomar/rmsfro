@@ -48,7 +48,6 @@ import { DashbodExaminerComponent } from './page/dashbod-examiner/dashbod-examin
 import { ViewSupervisorComponent } from './pages/view-supervisor/view-supervisor.component';
 import { ViewCommentComponent } from './page/view-comment/view-comment.component';
 import { DashbordSupervisorComponent } from './page/dashbord-supervisor/dashbord-supervisor.component';
-import { DashbordExaminerComponent } from './page/dashbord-examiner/dashbord-examiner.component';
 import { PgoDashbordComponent } from './page/pgo-dashbord/pgo-dashbord.component';
 import { AllocationAllComponent } from './page/allocation-all/allocation-all.component';
 import { ReserchDocumentComponent } from './page/reserch-document/reserch-document.component';
@@ -93,7 +92,6 @@ import { ResearchComplitedComponent } from './page/research-complited/research-c
     ViewSupervisorComponent,
     ViewCommentComponent,
     DashbordSupervisorComponent,
-    DashbordExaminerComponent,
     PgoDashbordComponent,
     AllocationAllComponent,
     ReserchDocumentComponent,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-research-complited',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 export class ResearchComplitedComponent {
 items: any;
+constructor(private router:Router){}
+
+addresult(){
+  return this.router.navigateByUrl('dialogResul')
+}
 
 }

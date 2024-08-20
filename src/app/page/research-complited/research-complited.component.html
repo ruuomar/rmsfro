@@ -1,21 +1,36 @@
-<mat-card>
-<mat-card-header>
-    <mat-card-title>REsearch Coplited</mat-card-title>
-    <mat-card-content>
-        <table>
+<mat-card class="user-card">
+    <mat-card-title>
+      <h2>Research</h2>
+    </mat-card-title>
+        <div >
+          <table class="table">
             <thead>
-                <tr>
-                    <th>sn</th>
-                    <th>REsearch</th>
-                    <th>Action</th>
-                </tr>
+              <tr>
+                <th>Sn</th>
+                <th>Registration Number</th>
+                <th>Research</th>
+                <th>Action</th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    @for (item of items; track $index) {}
-                </tr>
+             
+                @for (item of items; track $index) {
+                    <tr>
+                      <td>{{$index+1}}</td>
+                      <td>{{item.student.std_regNumber}}</td>
+                      <td>{{item.title}}</td>
+                      <td>
+                        <button class="btn btn-outline-primary" >view</button>
+                        <button class="btn btn-outline-primary" (click)="addresult()">Add result</button>
+                      </td>
+                  </tr>
+                }
+               @empty {
+                <p> No research found </p>
+               }
             </tbody>
-        </table>
-    </mat-card-content>
-</mat-card-header>
-</mat-card>
+          </table>
+        </div>
+  </mat-card>   
+  
+  

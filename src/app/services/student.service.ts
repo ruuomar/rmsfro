@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpServiceService } from './http-service.service';
 
+export interface StudentCountResponse {
+  student_count: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,6 +44,10 @@ export class StudentService {
 
   getAllStudentExaminer(){
     return this.http.get(this.url+"students_not_allocated_to_examiner")
+  }
+
+  getcountStudent(): Observable<StudentCountResponse>{
+    return this.http.get<StudentCountResponse>(this.url+"countStudent")
   }
   
 }

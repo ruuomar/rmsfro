@@ -32,8 +32,8 @@
                                     <button class="btn btn-outline-primary" (click)="viewfile(item.research_id)">view</button>
                                     <button class="btn btn-outline-primary" (click)="approve(item.research_id)"[disabled]="item.approval !== 'approved'">Done</button>
                                     <button class="btn btn-outline-success" (click)="approve(item.research_id)"[disabled]="item.approval === 'approved'">Approve</button>
-                                    <button class="btn btn-outline-warning"(click)="rejected(item.research_id)">reject</button>
-                                    <button class="btn btn-outline-warning"(click)="onComment(item.research_id)">Comment</button>
+                                    <button class="btn btn-outline-warning"(click)="rejected(item.research_id)">Reject</button>
+                                    <button class="btn btn-outline-warning"(click)="onComment(item.research_id)">Upload Comment</button>
                                 </div>
                         
                             </td>

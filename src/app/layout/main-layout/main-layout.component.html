@@ -44,7 +44,7 @@
           </button>
       </mat-menu>
       
-      <a mat-list-item routerLink="view">
+      <!-- <a mat-list-item routerLink="view">
           <mat-icon>visibility</mat-icon>
           <span>View Student</span>
       </a>
@@ -52,13 +52,13 @@
       <a mat-list-item routerLink="viewSupervisor" >
           <mat-icon>supervisor_account</mat-icon>
           <span>View Supervisor</span>
-      </a>
+      </a> -->
       
       <a mat-list-item routerLink="document">
           <mat-icon>description</mat-icon>
           <span>Document</span>
       </a>
-      <a mat-list-item routerLink="allocationAll">Allocation</a>
+      <!-- <a mat-list-item routerLink="allocationAll">Allocation</a> -->
       
       
         <!-- <a mat-list-item routerLink="listUser">User list</a> -->
@@ -109,14 +109,14 @@
             <mat-icon>dashboard</mat-icon>
             <span>Dashboard</span>
           </a>
-          <a mat-list-item routerLink="view" routerLinkActive="active-link">
+          <!-- <a mat-list-item routerLink="view" routerLinkActive="active-link">
             <mat-icon>person</mat-icon>
             <span>Student</span>
-          </a>
-          <a mat-list-item routerLink="supervisorView" routerLinkActive="active-link">
+          </a> -->
+          <!-- <a mat-list-item routerLink="supervisorView" routerLinkActive="active-link">
             <mat-icon>people</mat-icon>
             <span>Supervisor</span>
-          </a>
+          </a> -->
           <a mat-list-item [matMenuTriggerFor]="allocationMenu">
             <mat-icon>assignment</mat-icon>
             <span>Allocation List</span>
@@ -131,7 +131,10 @@
               <span>Internal Examiner</span>
             </button>
           </mat-menu>
-          <a mat-list-item routerLink="reserchCompleted">Research</a>
+          <button mat-menu-item routerLink="reserchCompleted" routerLink="active-link">
+            <mat-icon>book</mat-icon>
+            <span>Desatation Result</span>
+          </button>
         </nav>
         
       }

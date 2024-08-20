@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SupervisorService } from '../../services/supervisor.service';
 import { Router } from '@angular/router';
+import { AllocationService } from '../../services/allocation.service';
 
 @Component({
   selector: 'app-pgo-dashbord',
@@ -9,10 +10,16 @@ import { Router } from '@angular/router';
 })
 export class PgoDashbordComponent  implements OnInit{
   supervisorCount: number | null = null;
+  allocationCount:number=0;
   ngOnInit(): void {
-
+      this.fechAllocationCount();
+      this.fetchSupervisorCount()
   }
-  constructor(private supervisorService:SupervisorService,private router:Router){}
+  constructor(
+    private supervisorService:
+    SupervisorService,
+    private router:Router,
+    private allocationservice:AllocationService){}
 
 
   fetchSupervisorCount(): void {
@@ -23,11 +30,23 @@ export class PgoDashbordComponent  implements OnInit{
       
     })
   }
+  fechAllocationCount():void{
+    this.allocationservice.getfechAllocation().subscribe((data)=>{
+      this.allocationCount=data
+
+    })
+}
   
-  viewStudent() {
+studentView(){
       return this.router.navigateByUrl('view')
   }
-  viewSupervisor() {
+
+supervisorView() {
     return this.router.navigateByUrl('viewSupervisor')
   }
+
+allocationList(){
+  return this.router.navigateByUrl('allocationAll')
+}
+
 }

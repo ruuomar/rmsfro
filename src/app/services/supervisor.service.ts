@@ -26,4 +26,8 @@ getExaminer(){
 getSupervisorCount(): Observable<{ count: number }> {
   return this.http.get<{ count: number }>(this.url+"countSupervisor");
 }
+
+getSupervisors(){
+  return this.http.get(this.url)
+}
 }

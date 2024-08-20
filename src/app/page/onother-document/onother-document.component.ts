@@ -51,7 +51,8 @@ export class OnotherDocumentComponent implements OnInit {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       this.selectedFile = fileInput.files[0];
-      console.log('File selected:', this.selectedFile); // Debugging log
+
+      console.log('File selected:', this.selectedFile); 
   
       // Update the form control with the selected file
       this.documentUPdate.patchValue({
@@ -63,18 +64,9 @@ export class OnotherDocumentComponent implements OnInit {
     }
   }
   
-
-  // onSave(){
-  //   const values =this.documentUPdate.value
-  //     const research_id= this.documentUPdate.value.research_id
-  //     this.researchService.updateResearch(research_id,values).subscribe((newdata:any)=>{
-  //       console.log(newdata)
-  //     })
-  // }
-
   onSave() {
-    console.log('Form Valid:', this.documentUPdate.valid);
-    console.log('Selected File:', this.selectedFile);
+    // console.log('Form Valid:', this.documentUPdate.valid);
+    // console.log('Selected File:', this.selectedFile);
 
     if (this.documentUPdate.valid && this.selectedFile) {
         const formData = new FormData();

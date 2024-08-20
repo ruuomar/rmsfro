@@ -1,22 +1,55 @@
 
-  <div class="headers">
-    <p>Admin</p>
-    <div class="dashboard-container">
-      <div class="account-box"  (click)="listUser()">
-          <h2>{{userCount}}</h2>
-          <mat-icon>people</mat-icon>
-          <p>Total Users</p>
-      </div>
-
-      <div class="account-box" (click)="allocationList()">
-          <h2>{{allocationCount}}</h2>
-          <mat-icon>assignment</mat-icon> 
-          <p>Allocation list</p>
-      </div>
-
-      <div class="account-box">
-          <h2></h2>
-          <p>Reserch Completed</p>
-      </div>
+<div class="header">
+  <h2>Admin  Dashboard</h2>
+  <div class="search-container">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Search">
   </div>
 </div>
+<div class="dashboard-container">
+  </div>
+
+<div class="dashboard-container">
+  <mat-card class="dashboard-card" (click)="listUser()">
+    <mat-card-header>
+      <mat-card-title>User list</mat-card-title>
+      <mat-icon>supervisor_account</mat-icon>
+    </mat-card-header>
+    <h2>{{userCount}}</h2>
+    <mat-card-content>
+      </mat-card-content>
+  </mat-card>
+
+  <mat-card class="dashboard-card" (click)="studentView()">
+    <mat-card-header>
+      <mat-card-title>Students</mat-card-title>
+      <mat-icon>group</mat-icon>
+    </mat-card-header>
+    <h1>{{studentsCount}}</h1>
+    <mat-card-content>
+      </mat-card-content>
+  </mat-card>
+
+  <mat-card class="dashboard-card" (click)="allocationList()">
+    <mat-card-header>
+      <mat-card-title>Allocation</mat-card-title>
+      <mat-icon>assignment</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      <h1>{{allocationCount}}</h1>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>Unallocated Students</mat-card-title>
+      <mat-icon>person_outline</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+

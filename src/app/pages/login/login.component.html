@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="form-floating mb-3">
+    <!-- <div class="form-floating mb-3">
       <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password">
       <label for="floatingConfirmPassword">Confirm Password</label>
       <div *ngIf="logForm.get('confirmPassword')?.invalid && logForm.get('confirmPassword')?.touched" class="error-message">
@@ -32,7 +32,7 @@
     <div *ngIf="logForm.errors?.['passwordMismatch'] && logForm.get('confirmPassword')?.touched" class="error-message">
       Passwords do not match.
     </div>
-    
+     -->
     <div class="login text-center">
       <button mat-raised-button color="primary" [disabled]="logForm.invalid" (click)="onLogin()">Login</button>
       <div *ngIf="errorMsg" class="error-message">
