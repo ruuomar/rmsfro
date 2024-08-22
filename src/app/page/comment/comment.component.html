@@ -24,18 +24,15 @@
 <h2 mat-dialog-title>Upload Comment</h2>
 <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
   <div>
-    <input id="file" type="file" (change)="onFileSelect($event)" formControlName="commentFile">
-
+    <label for="file">Upload File:</label>
+    <input id="file" type="file" (change)="onFileSelected($event)">
   </div>
-  <!-- <mat-form-field>
-    <textarea matInput placeholder="Add your comment" formControlName="comment"></textarea>
-  </mat-form-field> -->
-
   <div mat-dialog-actions>
     <button mat-button (click)="onClose()">Cancel</button>
     <button mat-button type="submit" [disabled]="uploadForm.invalid">Upload</button>
   </div>
 </form>
+
 
 
 

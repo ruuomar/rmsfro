@@ -10,6 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrl: './comment.component.css'
 })
 export class CommentComponent {
+  file!:any
 //   commentForm!: FormGroup;
 //   research_id!: string;
 
@@ -72,43 +73,48 @@ export class CommentComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { research_id: any },
     private fb: FormBuilder,
-    private commentService:CommentService,
-    private route:ActivatedRoute,
+    private commentService: CommentService,
+    private route: ActivatedRoute,
     private dialogRef: MatDialogRef<CommentComponent>
-    ) {this.uploadForm = this.fb.group({
-      commentFile: [null, Validators.required],
-      // comment: ['', Validators.required]
-    });}
-  
-
-    onFileSelect(event: any) {
-      if (event.target.files.length > 0) {
-        const file = event.target.files[0];
-        this.uploadForm.patchValue({
-          file: file
-        });
-    
-        this.uploadForm.updateValueAndValidity(); 
-        console.log('Form valid state:', this.uploadForm.valid); // Hii itakuonyesha kama form ni valid
-      }
-    }
-    
-    onSubmit() {
-      const formData = new FormData();
-      formData.append('commentFile', this.uploadForm.get('commentFile')?.value); // Append the file
-      formData.append('research_id', this.data.research_id);
-    
-      this.commentService.addComment(this.data.research_id, formData).subscribe(
-        response => console.log('Success:', response),
-        error => console.error('Error:', error)
-      );
-    }
-
-    
-
-  onClose() {
-    this.dialogRef.close();
-  }
-
+) {
+    this.uploadForm = this.fb.group({
+        commentFile: [null, Validators.required]
+    });
 }
 
+onFileSelected(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+        // Set the selected file to the form control
+        this.uploadForm.patchValue({
+            commentFile: fileInput.files[0]
+        });
+    }
+}
+onSubmit(): void {
+  if (this.uploadForm.valid) {
+    const formData = new FormData();
+    formData.append('file', this.uploadForm.get('commentFile')?.value);
+
+    this.commentService.addComment(this.data.research_id, formData).subscribe(
+      response => {
+        console.log('File uploaded successfully', response);
+        this.dialogRef.close(); // Close the dialog on success
+      },
+      error => {
+        console.error('File upload failed', error);
+        if (error.error) {
+          console.error('Error response:', error.error);
+        }
+      }
+    );
+  } else {
+    console.log('Form is invalid');
+  }
+}
+
+onClose(): void {
+    this.dialogRef.close(); // Close the dialog without doing anything
+}
+
+}

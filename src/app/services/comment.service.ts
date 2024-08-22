@@ -20,13 +20,16 @@ export class CommentService {
   private url = String("http://127.0.0.1:8000/api/")
 
 
-
   addComment(research_id: any, formData: FormData): Observable<any> {
     const headers = this.httpService.getAuthHeaders();
-    
-    return this.http.post(this.url + "insertcomment", formData, { headers });
+    return this.http.post(this.url + 'insertcomment', formData, { headers });
   }
 
+  // addComment(formData: FormData) {
+  //   const headers = this.httpService.getAuthHeaders();
+  
+  //   return this.http.post('http://127.0.0.1:8000/api/insertcomment', formData, { headers: headers });
+  // }
   getComment(): Observable<any>{
     const headers = this.httpService.getAuthHeaders();
     return this.http.get(this.url+'getCommentByStudent', {headers })
