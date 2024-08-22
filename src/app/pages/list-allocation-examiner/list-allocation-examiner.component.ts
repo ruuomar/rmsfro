@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AllocationService } from '../../services/allocation.service';
 import { SupervisorService } from '../../services/supervisor.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-list-allocation-examiner',
@@ -19,7 +20,7 @@ constructor(private router:Router,
 
 ngOnInit(): void {
   this.getAll()
-  
+
 }
 
 onAllocation() {
@@ -33,19 +34,48 @@ getAll(){
  })
 } 
 
-onDelete(list: any) {
-  this.allocation.delete(list).subscribe(
-    (data) => {
-      this.getAll();
-      // Show success message
-      this.snackBar.open('Item deleted successfully!', 'Close', {
-        duration: 3000, // Duration in milliseconds
-        verticalPosition: 'top', // Positioning the snackbar at the top
-      });
-    },
+// ondelete(list: any) {
+//   this.allocation.delete(list).subscribe(() => {
+//       this.getAll();
+//       // Show success message
+//       // this.snackBar.open('Item deleted successfully!', 'Close', {
+//       //   duration: 3000, // Duration in milliseconds
+//       //   verticalPosition: 'top', // Positioning the snackbar at the top
+//       // });
+//     },
     
+//   );
+
+// }
+
+ondelete(list:any){
+  this.allocation.delete(list).subscribe(()=>{
+    console.log("succesful deleted", list)
+    this.getAll()
+  })
+}
+
+generatePDF() {
+  const doc = new jsPDF();
+  doc.text('Examiner and Student Allocation List', 14, 16);
+
+  const head = [['Supervisor', 'Student Name', 'Registration Number', 'Program']];
+  const data = this.list.flatMap((item: { students: any[]; supervisor: any; }) => 
+    item.students.map((student, index) => [
+      index === 0 ? item.supervisor : '', // Corrected typo here
+      student.std_name,
+      student.std_regNumber,
+      student.Std_program
+    ])
   );
 
-}
+  (doc as any).autoTable({
+    head: head,
+    body: data,
+    startY: 20,
+  });
+
+  doc.save('allocation_list.pdf');
+  }
 
 }

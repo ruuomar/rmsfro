@@ -38,14 +38,14 @@
                             <td>{{ student.std_regNumber }}</td>
                             <td>{{ student.Std_program }}</td>
                             <td>
-                                <mat-icon color="warn" (click)="ondelete(item.allocate_Id)">delete</mat-icon>
+                                <mat-icon color="warn" (click)="ondelete(student.allocation_id)">delete</mat-icon>
                             </td> 
                         </tr>
                     </ng-container>
                 </ng-container>
-                <tr *ngIf="list.length === 0">
+                <!-- <tr *ngIf="list.length === 0">
                     <td colspan="6">No allocation ..</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </mat-card-content>

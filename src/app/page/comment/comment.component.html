@@ -1,4 +1,4 @@
-
+<!-- 
 <mat-card>
   <mat-card-content>
     <form [formGroup]="commentForm">
@@ -19,7 +19,24 @@
     <button mat-raised-button color="primary" (click)="onSave()">Save</button>
     <button mat-button (click)="onCancel()">Cancel</button>
   </mat-card-actions>
-</mat-card>
+</mat-card> -->
+
+<h2 mat-dialog-title>Upload Comment</h2>
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  <div>
+    <input id="file" type="file" (change)="onFileSelect($event)" formControlName="commentFile">
+
+  </div>
+  <!-- <mat-form-field>
+    <textarea matInput placeholder="Add your comment" formControlName="comment"></textarea>
+  </mat-form-field> -->
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onClose()">Cancel</button>
+    <button mat-button type="submit" [disabled]="uploadForm.invalid">Upload</button>
+  </div>
+</form>
+
 
 
 

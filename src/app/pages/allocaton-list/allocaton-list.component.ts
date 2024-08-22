@@ -13,7 +13,7 @@ import * as XLSX from 'xlsx';
 })
 export class AllocatonListComponent implements OnInit {
 
- list:any
+list:any
 allocations: any;
 onedit() {
 
@@ -41,7 +41,7 @@ getAll(){
 
 ondelete(list:any){
   this.allocation.delete(list).subscribe(()=>{
-    console.log("succesful deleted")
+    console.log("succesful deleted",list)
     this.getAll()
   })
 }
@@ -70,17 +70,17 @@ generatePDF() {
   }
 
 
-  exportToExcel(): void {
-    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.list.flatMap((item: any) =>
-      item.students.map((student: any, index: number) => ({
-        Supervisor: index === 0 ? item.supervisor : '',
-        'Student Name': student.std_name,
-        'Registration Number': student.std_regNumber,
-        Program: student.Std_program
-      }))
-    ));
-    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-    XLSX.writeFile(workbook, 'allocation_list.xlsx');
-  }
+  // exportToExcel(): void {
+  //   const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.list.flatMap((item: any) =>
+  //     item.students.map((student: any, index: number) => ({
+  //       Supervisor: index === 0 ? item.supervisor : '',
+  //       'Student Name': student.std_name,
+  //       'Registration Number': student.std_regNumber,
+  //       Program: student.Std_program
+  //     }))
+  //   ));
+  //   const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+  //   XLSX.writeFile(workbook, 'allocation_list.xlsx');
+  // }
 
 }

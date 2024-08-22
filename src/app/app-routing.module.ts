@@ -32,8 +32,10 @@ import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.c
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
 import { StudentDashboadComponent } from './page/student-dashboad/student-dashboad.component';
 import { AddResultComponent } from './page/add-result/add-result.component';
-import { ResearchComplitedComponent } from './page/research-complited/research-complited.component';
 import { AddResultDialogComponent } from './page/add-result-dialog/add-result-dialog.component';
+import { DissertationResultComponent } from './page/dissertation-result/dissertation-result.component';
+import { StudentbySupervisorComponent } from './page/studentby-supervisor/studentby-supervisor.component';
+
 
 const routes: Routes = [{
   path: '',component: MainLayoutComponent,
@@ -56,7 +58,7 @@ const routes: Routes = [{
     {path: 'comment/:research_id',component:CommentComponent},
     {path: 'allocation',component:AllocatedComponent},
     {path: 'stdDashboad', component:StdDashbordComponent},
-    {path: 'student', component:StudentDashboadComponent},
+    {path: 'studentForm', component:StudentDashboadComponent},
     {path: 'viewCOmment',component:ViewCommentComponent},
     {path: 'view',component:ViewStudentComponent},
     {path: 'viewSupervisor', component:ViewSupervisorComponent},
@@ -71,7 +73,9 @@ const routes: Routes = [{
     {path: 'updateDocument/:research_id',component:OnotherDocumentComponent},
     {path: 'completed',component:ReserchDocumentComponent},
     {path: 'addResult/',component:AddResultComponent},
-    {path: 'reserchCompleted',component:ResearchComplitedComponent}
+    {path: 'DissertationResult',component:DissertationResultComponent},
+    {path: 'getStudentbySupervisor',component:StudentbySupervisorComponent}
+  
   ]
 },
 {path: 'login/registration', component:RegComponent},

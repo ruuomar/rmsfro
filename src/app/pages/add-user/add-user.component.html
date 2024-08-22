@@ -31,7 +31,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full-width">
-        <mat-label>User Type</mat-label>
+        <mat-label>Select role</mat-label>
         <mat-select formControlName="role">
           <mat-option *ngFor="let role of roles" [value]="role.value">{{ role.viewValue }}</mat-option>
         </mat-select>

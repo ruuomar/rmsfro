@@ -21,13 +21,10 @@ export class CommentService {
 
 
 
-  addComment(research_id:any, description:any): Observable<any> {
-    const body = {research_id, description};
-    // console.log(body);
-    
+  addComment(research_id: any, formData: FormData): Observable<any> {
     const headers = this.httpService.getAuthHeaders();
-
-    return this.http.post(this.url+"insertcomment", body, {headers });
+    
+    return this.http.post(this.url + "insertcomment", formData, { headers });
   }
 
   getComment(): Observable<any>{

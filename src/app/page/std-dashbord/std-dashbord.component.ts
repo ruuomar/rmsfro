@@ -51,19 +51,25 @@ constructor(
   //   });
   // }
 
-  getAll(){
-    this.document.getAll().subscribe((data:any)=>{
-      if (Array.isArray(data)) {
-              this.list = data;
-              console.log('research ',this.list);
-            }
-               else {
-              this.list = [data]; // Convert the single object to an array
-              console.log(this.list);
-            }
+  // getAll(){
+  //   this.document.getAll().subscribe((data:any)=>{
+  //     if (Array.isArray(data)) {
+  //             this.list = data;
+  //             console.log('research ',this.list);
+  //           }
+  //              else {
+  //             this.list = [data]; // Convert the single object to an array
+  //             console.log(this.list);
+  //           }
 
       
            
+  //   });
+  // }
+  getAll() {
+    this.document.getAll().subscribe((data: any) => {
+      this.list = Array.isArray(data) ? data : [data]; // Hakikisha 'data' ni array
+      console.log('research', this.list);
     });
   }
   

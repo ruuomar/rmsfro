@@ -115,7 +115,7 @@ errorMsg: any;
       console.log(isRegistered);
       
     } else {
-      this.router.navigateByUrl('studentDashboard');
+      this.router.navigateByUrl('studentForm');
       console.log(isRegistered);
       
     }

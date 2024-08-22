@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-content>
+        <table>
+            <thead>
+                <tr>
+                    <th>sn</th>
+                    <th>marks</th>
+                    <th>add result</th>
+                    <th>grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @for (item of items; track $index) {
+                        <td>{{$index+1}}</td>
+                        <td>{{item.marks}}</td>
+                        <td>{{item.grade}}</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>

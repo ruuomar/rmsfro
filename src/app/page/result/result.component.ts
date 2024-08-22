@@ -11,6 +11,7 @@ export class ResultComponent implements OnInit{
   results: any = {};
   average_marks: number = 0;
   grade: string = '';
+  remark: string = '';
   tittle: string = ''
 
 
@@ -23,6 +24,7 @@ export class ResultComponent implements OnInit{
         this.results = data;
         this.average_marks = data.average;
         this.grade = data.grade;
+        this.remark = data.remark
         console.log(data)
     
       },

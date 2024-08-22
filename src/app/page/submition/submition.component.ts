@@ -5,6 +5,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { DocumentDialogComponent } from '../document-dialog/document-dialog.component';
 import { MainLayoutComponent } from '../../layout/main-layout/main-layout.component';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-submition',
@@ -58,11 +59,11 @@ onComplete: any;
   
   }
 
-  onComment(research_id:any){
-    console.log(research_id);
+  // onComment(research_id:any){
+  //   console.log(research_id);
     
-    return this.router.navigate(['/comment', research_id]);
-  }
+  //   return this.router.navigate(['/comment', research_id]);
+  // }
   
   approve(research_id:any){
     return this.documentservice.approve(research_id).subscribe((response)=>{
@@ -77,5 +78,25 @@ onComplete: any;
       
       this.getAll()
     })
+  }
+
+
+
+
+
+
+  onComment(research_id: string) {
+    const dialogRef = this.dialog.open(CommentComponent, {
+      width: '400px',
+      data: { researchId: research_id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Handle the uploaded file and comment
+        console.log('File and comment uploaded:', result);
+        // You can send the result to the server here
+      }
+    });
   }
 }

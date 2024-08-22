@@ -65,8 +65,14 @@
         <!-- <a mat-list-item routerLink="adduser">Add User</a> -->
       }
       @else if (role === 'Supervisor') {
-        <a mat-list-item routerLink="superDashbord">Dashboard</a>
-        <a mat-list-item routerLink="submition">Submition</a>
+        <a mat-list-item routerLink="superDashbord">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="submition">
+          <mat-icon>assignment</mat-icon>
+          <span>Submission</span>
+        </a>
         <mat-menu #submissionMenu="matMenu">
           <button mat-menu-item routerLink="Dashboard/newlySubmition">Newly submission</button>
           <button mat-menu-item routerLink="ongoingResearch">Ongoing Research</button>
@@ -80,9 +86,9 @@
           <span>Dashboard</span>
       </a>
 
-      <a mat-list-item routerLink="student" class="menu-item">
+      <a mat-list-item routerLink="studentForm" class="menu-item">
           <mat-icon class="menu-icon">assignment</mat-icon>
-          <span>Detail Form</span>
+          <span>Student Information</span>
       </a>
       
       <a mat-list-item routerLink="mysubmition" class="menu-item">
@@ -131,7 +137,7 @@
               <span>Internal Examiner</span>
             </button>
           </mat-menu>
-          <button mat-menu-item routerLink="reserchCompleted" routerLink="active-link">
+          <button mat-menu-item routerLink="DissertationResult">
             <mat-icon>book</mat-icon>
             <span>Desatation Result</span>
           </button>

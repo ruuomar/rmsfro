@@ -23,6 +23,11 @@ export class DocumentService {
     return this.http.post(this.url + 'insertDocument', body, { headers });
   }
 
+  checkResearchSubmission(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.get(this.url + 'check_reseach_submission', { headers });
+  }
+
   getAll(): Observable<any>{
     const headers = this.httpService.getAuthHeaders();
     return this.http.get(this.url +"getresearch", { headers });

@@ -42,24 +42,34 @@ export class ListUserComponent implements OnInit{
 
   }
 
-  addUser(){
-    this.router.navigateByUrl('adduser')
+  // addUser(){
+  //   this.router.navigateByUrl('adduser')
      
-    //  {const options = {
-    //   data :{
-    //         crudMod: 'create',
-    //         student: null
-    //   },
-    //   width:'60%',
-    //   height:'50%'
-    // }
+  //   //  {const options = {
+  //   //   data :{
+  //   //         crudMod: 'create',
+  //   //         student: null
+  //   //   },
+  //   //   width:'60%',
+  //   //   height:'50%'
+  //   // }
 
-    // this.dialog.open(EdituserComponent,options)
+  //   // this.dialog.open(EdituserComponent,options)
     
 
 
-    // }
+  //   // }
     
+  // }
+  addUser(): void {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: '600px',
+      data: { /* Pass data if needed */ }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
  
 }

@@ -29,7 +29,6 @@ import { DashboardAdminComponent } from './page/dashboard-admin/dashboard-admin.
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ListUserComponent } from './pages/list-user/list-user.component';
 import { AllocatonListComponent } from './pages/allocaton-list/allocaton-list.component';
-import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ResultComponent } from './page/result/result.component';
 import { MySubmitionComponent } from './page/my-submition/my-submition.component';
 import { EdituserComponent } from './pages/edituser/edituser.component';
@@ -55,7 +54,10 @@ import { AddUserDialogComponent } from './page/add-user-dialog/add-user-dialog.c
 import { OnotherDocumentComponent } from './page/onother-document/onother-document.component';
 import { AddResultComponent } from './page/add-result/add-result.component';
 import { AddResultDialogComponent } from './page/add-result-dialog/add-result-dialog.component';
-import { ResearchComplitedComponent } from './page/research-complited/research-complited.component';
+import { DissertationResultComponent } from './page/dissertation-result/dissertation-result.component';
+import { StudentbySupervisorComponent } from './page/studentby-supervisor/studentby-supervisor.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+
 
 
 
@@ -76,7 +78,6 @@ import { ResearchComplitedComponent } from './page/research-complited/research-c
     DashboardAdminComponent,
     ListUserComponent,
     AllocatonListComponent,
-    AddUserComponent,
     ResultComponent,
     MySubmitionComponent,
     EdituserComponent,
@@ -96,10 +97,13 @@ import { ResearchComplitedComponent } from './page/research-complited/research-c
     AllocationAllComponent,
     ReserchDocumentComponent,
     AddUserDialogComponent,
+    AddUserComponent,
     OnotherDocumentComponent,
     AddResultComponent,
     AddResultDialogComponent,
-    ResearchComplitedComponent,
+    DissertationResultComponent,
+    StudentbySupervisorComponent,
+
   
  
    

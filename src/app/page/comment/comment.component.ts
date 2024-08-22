@@ -10,33 +10,33 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrl: './comment.component.css'
 })
 export class CommentComponent {
-  commentForm!: FormGroup;
-  research_id!: string;
+//   commentForm!: FormGroup;
+//   research_id!: string;
 
 
 
-  constructor(
-    private comment:CommentService,
-    private route:ActivatedRoute,
-    private fb: FormBuilder,
-    public dialogRef: MatDialogRef<CommentComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    {
-      this.commentForm = this.fb.group({
-        description: [this.data.description || '']
-      });
-  }
-}
-onSave(): void {
-  // Pass the form value back to the calling component
-  this.dialogRef.close(this.commentForm.value);
-}
+//   constructor(
+//     private comment:CommentService,
+//     private route:ActivatedRoute,
+//     private fb: FormBuilder,
+//     public dialogRef: MatDialogRef<CommentComponent>,
+//     @Inject(MAT_DIALOG_DATA) public data: any
+//   ) {
+//     {
+//       this.commentForm = this.fb.group({
+//         description: [this.data.description || '']
+//       });
+//   }
+// }
+// onSave(): void {
+//   // Pass the form value back to the calling component
+//   this.dialogRef.close(this.commentForm.value);
+// }
 
-onCancel(): void {
-  this.dialogRef.close();  // No data is passed back
-}
-}
+// onCancel(): void {
+//   this.dialogRef.close();  // No data is passed back
+// }
+// }
 
   
   // ngOnInit(): void {
@@ -67,6 +67,48 @@ onCancel(): void {
   //   })
   // }
 
+  uploadForm: FormGroup;
 
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { research_id: any },
+    private fb: FormBuilder,
+    private commentService:CommentService,
+    private route:ActivatedRoute,
+    private dialogRef: MatDialogRef<CommentComponent>
+    ) {this.uploadForm = this.fb.group({
+      commentFile: [null, Validators.required],
+      // comment: ['', Validators.required]
+    });}
+  
 
+    onFileSelect(event: any) {
+      if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        this.uploadForm.patchValue({
+          file: file
+        });
+    
+        this.uploadForm.updateValueAndValidity(); 
+        console.log('Form valid state:', this.uploadForm.valid); // Hii itakuonyesha kama form ni valid
+      }
+    }
+    
+    onSubmit() {
+      const formData = new FormData();
+      formData.append('commentFile', this.uploadForm.get('commentFile')?.value); // Append the file
+      formData.append('research_id', this.data.research_id);
+    
+      this.commentService.addComment(this.data.research_id, formData).subscribe(
+        response => console.log('Success:', response),
+        error => console.error('Error:', error)
+      );
+    }
+
+    
+
+  onClose() {
+    this.dialogRef.close();
+  }
+
+}
 

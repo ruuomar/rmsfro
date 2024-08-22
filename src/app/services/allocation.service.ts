@@ -24,7 +24,7 @@ getAllSupervisor(){
 
 //  for examiner
 getAllExaminer(){
-  return this.http.get(this.url+"examiner_allocation")
+  return this.http.get(this.url+"examinerAllocation")
 }
 
 getAllAllocation(){

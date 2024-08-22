@@ -7,6 +7,7 @@ export interface ResultData {
   devider: number;
   average: number;
   grade: string;
+  remark: string;
   tittle: string;
 }
 
@@ -18,8 +19,10 @@ export class ResultService {
   constructor(private http:HttpClient,private httpService:HttpServiceService) { }
   private url = String("http://127.0.0.1:8000/api/")
 
-  addResult(research_id: string, result: any) {
-    const body = { research_id, result };
+  addResult(research_id: string, marks: number) {
+    const body = { research_id, marks };
+    console.log(body);
+    
     const headers = this.httpService.getAuthHeaders();
     return this.http.post(this.url + "insertresult", body, { headers });
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { UserService } from '../../services/user.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class AddUserComponent implements OnInit {
 
 
 constructor(private user:UserService,
-  private router:Router){}
+  private router:Router,
+  public dialogRef: MatDialogRef<AddUserComponent>,
+  @Inject(MAT_DIALOG_DATA) public data: any
+  ){}
+  
   ngOnInit(): void {
    this.configrationAddUser()
   }
