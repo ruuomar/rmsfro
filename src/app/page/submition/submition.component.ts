@@ -43,21 +43,27 @@ onComplete: any;
   //     window.open(url);
   //   });
   // }
-
   viewfile(research_id: string): void {
     this.documentservice.getfile(research_id).subscribe((blob) => {
       const file = new Blob([blob], { type: blob.type });
       const url = window.URL.createObjectURL(file);
-
+  
       // Open the document in a dialog
       this.dialog.open(DocumentDialogComponent, {
         data: { url },
         width: '100%',
         height: '100%'
       });
-    });
   
+      // Add a download link
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `document_${research_id}`; //hii kwajili ya kuset document kwamba document fulani ndio ambayo na idowlod
+      a.click();
+      // document.body.removeChild(a); 
+    });
   }
+
 
   // onComment(research_id:any){
   //   console.log(research_id);

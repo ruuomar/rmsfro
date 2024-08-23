@@ -50,4 +50,8 @@ export class StudentService {
     return this.http.get<StudentCountResponse>(this.url+"countStudent")
   }
   
+  get_student_statistics(){
+    return this.http.get(this.url+"get_student_statistics")
+  }
+  
 }
