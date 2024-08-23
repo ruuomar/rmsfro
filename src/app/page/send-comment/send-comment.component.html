@@ -1,0 +1,12 @@
+<mat-card>
+    <form [formGroup]="uploddocument">
+      <div>
+        <label for="document">Upload document</label>
+        <input type="file" (change)="onFileChange($event)">
+        <button (click)="upload()">Upload</button>
+      </div>
+    </form>
+  </mat-card>
+  
+  
+

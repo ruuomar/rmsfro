@@ -57,6 +57,7 @@ import { AddResultDialogComponent } from './page/add-result-dialog/add-result-di
 import { DissertationResultComponent } from './page/dissertation-result/dissertation-result.component';
 import { StudentbySupervisorComponent } from './page/studentby-supervisor/studentby-supervisor.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
+import { SendCommentComponent } from './page/send-comment/send-comment.component';
 
 
 
@@ -103,6 +104,7 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
     AddResultDialogComponent,
     DissertationResultComponent,
     StudentbySupervisorComponent,
+    SendCommentComponent,
 
   
  

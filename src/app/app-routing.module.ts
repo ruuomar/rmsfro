@@ -35,6 +35,7 @@ import { AddResultComponent } from './page/add-result/add-result.component';
 import { AddResultDialogComponent } from './page/add-result-dialog/add-result-dialog.component';
 import { DissertationResultComponent } from './page/dissertation-result/dissertation-result.component';
 import { StudentbySupervisorComponent } from './page/studentby-supervisor/studentby-supervisor.component';
+import { SendCommentComponent } from './page/send-comment/send-comment.component';
 
 
 const routes: Routes = [{
@@ -74,7 +75,8 @@ const routes: Routes = [{
     {path: 'completed',component:ReserchDocumentComponent},
     {path: 'addResult/',component:AddResultComponent},
     {path: 'DissertationResult',component:DissertationResultComponent},
-    {path: 'getStudentbySupervisor',component:StudentbySupervisorComponent}
+    {path: 'getStudentbySupervisor',component:StudentbySupervisorComponent},
+    {path: 'sendComment',component:SendCommentComponent},
   
   ]
 },
