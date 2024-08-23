@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommentService } from '../../services/comment.service';
+import { SendCommentService } from '../../service/send-comment.service';
 
 @Component({
   selector: 'app-view-comment',
@@ -10,7 +11,7 @@ import { CommentService } from '../../services/comment.service';
 export class ViewCommentComponent implements OnInit{
 
 list:any
-constructor(private router:Router, private comment:CommentService){}
+constructor(private router:Router, private commentservice:SendCommentService){}
 
   ngOnInit(): void {
     this.getComment();
@@ -18,7 +19,7 @@ constructor(private router:Router, private comment:CommentService){}
   }
 
   getComment(){
-    return this.comment.getComment().subscribe((data)=>{
+    return this.commentservice.getComment().subscribe((data)=>{
      this.list = data;
      console.table(this.list);
      

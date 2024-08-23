@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { SendCommentService } from '../../service/send-comment.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-send-comment',
@@ -10,11 +11,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class SendCommentComponent {
   uploddocument!: FormGroup;
   file: File | null = null;
-
-  constructor(
+  researchId:string
+  constructor( 
+    @Inject(MAT_DIALOG_DATA) public data: { researchId: string }, // Inject the data
     private fb: FormBuilder, 
     private sendCommentService: SendCommentService
-  ) {}
+  ) {
+    this.researchId = data.researchId;
+  }
 
   ngOnInit(): void {
     this.uploddocument = this.fb.group({
@@ -36,7 +40,7 @@ export class SendCommentComponent {
     if (this.file) {
       const formData = new FormData();
       formData.append('commentFile', this.file);
-      formData.append('research_id', '5');
+      formData.append('research_id', this.researchId);
   
       this.sendCommentService.uploadFile(formData).subscribe(
         resp => alert('Uploaded successfully'),

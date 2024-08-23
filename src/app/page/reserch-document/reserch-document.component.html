@@ -21,7 +21,7 @@
                     <td>{{item.title}}</td>
                     <td>
                       <button class="btn btn-outline-primary" (click)="viewfile(item.research_id)">view</button>
-                      <button class="btn btn-outline-warning"(click)="openCommentDialog(item.research_id)">Comment</button>
+                      <button class="btn btn-outline-warning"(click)="onComment(item.research_id)">uplodComment</button>
                       <button class="btn btn-outline-primary"(click)="openAddResultDialog(item.research_id)">Add result</button>
                     </td>
                 </tr>

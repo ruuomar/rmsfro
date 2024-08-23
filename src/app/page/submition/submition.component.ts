@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DocumentDialogComponent } from '../document-dialog/document-dialog.component';
 import { MainLayoutComponent } from '../../layout/main-layout/main-layout.component';
 import { CommentComponent } from '../comment/comment.component';
+import { SendCommentComponent } from '../send-comment/send-comment.component';
 
 @Component({
   selector: 'app-submition',
@@ -92,11 +93,11 @@ onComplete: any;
 
 
   onComment(research_id: string) {
-    const dialogRef = this.dialog.open(CommentComponent, {
+    const dialogRef = this.dialog.open(SendCommentComponent, {
       width: '400px',
       data: { researchId: research_id }
     });
-
+  
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Handle the uploaded file and comment

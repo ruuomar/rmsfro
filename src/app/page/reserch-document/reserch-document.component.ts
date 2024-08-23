@@ -91,7 +91,7 @@ export class ReserchDocumentComponent implements OnInit {
     });
   }
 
-  openCommentDialog(research_id: string): void {
+ onComment(research_id: string): void {
     const dialogRef = this.dialog.open(CommentComponent, {
       width: '400px',
       data: {description:''} // Pass any data if needed
