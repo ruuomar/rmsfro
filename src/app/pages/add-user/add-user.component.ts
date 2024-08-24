@@ -21,7 +21,7 @@ constructor(private user:UserService,
   ){}
   
   ngOnInit(): void {
-   this.configrationAddUser()
+   this.configrationAddUser();
   }
 
 

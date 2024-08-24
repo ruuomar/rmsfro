@@ -30,4 +30,15 @@ getResult() {
   const headers = this.httpService.getAuthHeaders();
   return this.http.get<ResultData>(this.url + "studentgetresult", { headers });
 }
+
+pgogetResult(){
+  const headers = this.httpService.getAuthHeaders();
+  return this.http.get<ResultData>(this.url + "supervisorgetallresult", { headers });
+}
+
+ExportResult(){
+  const headers = this.httpService.getAuthHeaders();
+  return this.http.get<ResultData>(this.url + "download_excel", { headers });
+}
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StudentService } from '../../services/student.service';
 import { DocumentService } from '../../services/document.service';
@@ -23,8 +23,7 @@ export class StudentDashboadComponent implements OnInit {
     this.detailStudent = new FormGroup({
       std_name:new FormControl('',Validators.required),
       Std_program:new FormControl('',Validators.required),
-      std_regNumber:new FormControl('',Validators.required)
-      
+      std_regNumber: new FormControl('', [Validators.required, registrationNumberValidator()])
     })
   }
 
@@ -47,3 +46,11 @@ export class StudentDashboadComponent implements OnInit {
   
 
 }
+function registrationNumberValidator() {
+  const pattern = /^STU\/\d{1,2}\/\d{2}\/\d{3}\/[A-Z]{2}$/;
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const isValid = pattern.test(control.value);
+    return isValid ? null : { invalidRegistrationNumber: true };
+  };
+}
+

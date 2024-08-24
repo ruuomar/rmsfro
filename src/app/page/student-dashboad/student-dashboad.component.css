@@ -10,7 +10,7 @@
 mat-card{
     margin-bottom: 5%;
     height: 10%;
-    box-shadow: 1px 1px blue;
+    border-bottom: 2px solid #0056b3;
 }
 mat-card-title{
     margin-bottom: 10%;

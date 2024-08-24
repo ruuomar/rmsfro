@@ -1,22 +1,36 @@
+<div>
+    <button color="primary">upload Marks </button>
+    <button color="primary">Export</button>
+</div>
+
+
 <mat-card>
     <mat-card-content>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>sn</th>
-                    <th>marks</th>
-                    <th>add result</th>
+                    <th>Sn</th>
+                    <th>Student Registration</th>
+                    <th>Research</th>
+                    <th>marks1</th>
+                    <th>marks2</th>
                     <th>grade</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                
                     @for (item of items; track $index) {
-                        <td>{{$index+1}}</td>
-                        <td>{{item.marks}}</td>
-                        <td>{{item.grade}}</td>
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{item.student_reg_number}}</td>
+                            <td>{{item.research_title}}</td>
+                            <td>{{item.marks_one}}</td>
+                            <td>{{item.marks_two}}</td>
+                            <td>{{item.average_marks}}</td>
+                        </tr>
+                       
                     }
-                </tr>
+                
             </tbody>
         </table>
     </mat-card-content>
