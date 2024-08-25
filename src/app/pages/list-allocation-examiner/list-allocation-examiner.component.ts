@@ -34,19 +34,7 @@ getAll(){
  })
 } 
 
-// ondelete(list: any) {
-//   this.allocation.delete(list).subscribe(() => {
-//       this.getAll();
-//       // Show success message
-//       // this.snackBar.open('Item deleted successfully!', 'Close', {
-//       //   duration: 3000, // Duration in milliseconds
-//       //   verticalPosition: 'top', // Positioning the snackbar at the top
-//       // });
-//     },
-    
-//   );
 
-// }
 
 ondelete(list:any){
   this.allocation.delete(list).subscribe(()=>{
@@ -59,10 +47,10 @@ generatePDF() {
   const doc = new jsPDF();
   doc.text('Examiner and Student Allocation List', 14, 16);
 
-  const head = [['Supervisor', 'Student Name', 'Registration Number', 'Program']];
-  const data = this.list.flatMap((item: { students: any[]; supervisor: any; }) => 
+  const head = [['Examiner', 'Student Name', 'Registration Number', 'Program']];
+  const data = this.list.flatMap((item: { students: any[]; examiner: any; }) => 
     item.students.map((student, index) => [
-      index === 0 ? item.supervisor : '', // Corrected typo here
+      index === 0 ? item.examiner : '', // Corrected typo here
       student.std_name,
       student.std_regNumber,
       student.Std_program

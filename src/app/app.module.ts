@@ -58,6 +58,8 @@ import { DissertationResultComponent } from './page/dissertation-result/disserta
 import { StudentbySupervisorComponent } from './page/studentby-supervisor/studentby-supervisor.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { SendCommentComponent } from './page/send-comment/send-comment.component';
+import { UplodResultComponent } from './page/uplod-result/uplod-result.component';
+import { ViewDocumentComponent } from './page/view-document/view-document.component';
 
 
 
@@ -105,6 +107,8 @@ import { SendCommentComponent } from './page/send-comment/send-comment.component
     DissertationResultComponent,
     StudentbySupervisorComponent,
     SendCommentComponent,
+    UplodResultComponent,
+    ViewDocumentComponent,
 
   
  

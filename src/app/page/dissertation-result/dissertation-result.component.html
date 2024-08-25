@@ -1,8 +1,17 @@
-<div>
-    <button color="primary">upload Marks </button>
-    <button color="primary">Export</button>
+<div class="action-buttons" >
+    <button mat-raised-button color="primary" (click)="openUploadDialog()" class="btn-upload">
+        <i class="fas fa-upload"></i> Upload
+    </button>
+
+    <button mat-raised-button color="primary" (click)="exportMarks()" class="btn-export">
+        <i class="fas fa-file-export"></i> Export
+    </button>
 </div>
 
+
+<mat-card>
+    <mat-card-content>
+        <mat-card-title>Dessertation Result</mat-card-title>
 
 <mat-card>
     <mat-card-content>
@@ -14,7 +23,9 @@
                     <th>Research</th>
                     <th>marks1</th>
                     <th>marks2</th>
-                    <th>grade</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                    <th>Remark</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +38,8 @@
                             <td>{{item.marks_one}}</td>
                             <td>{{item.marks_two}}</td>
                             <td>{{item.average_marks}}</td>
+                            <td>{{getGrade(item.average_marks)}}</td>
+                            <td>{{getRemark(item.average_marks)}}</td>
                         </tr>
                        
                     }

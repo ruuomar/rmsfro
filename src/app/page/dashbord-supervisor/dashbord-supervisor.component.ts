@@ -17,7 +17,7 @@ constructor(private router:Router,private supervisorService:SupervisorService){}
 
 getStudentBySupervisor() {
   this.supervisorService.getstudentBySupervisor().subscribe((response) => {
-    this. totalStudent= response.count; // Set the total number of students
+    this. totalStudent= response.count; //kwajili ya kuget account
     console.log(this.totalStudent)
   }, (error) => {
     console.error('Error fetching students', error);

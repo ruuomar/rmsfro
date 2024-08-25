@@ -5,10 +5,19 @@
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="addUser" class="form-container">
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>First Name</mat-label>
-        <input matInput type="text" formControlName="first_name" placeholder="Enter first name" required />
-      </mat-form-field>
+      <div class="col-md-5">
+        <mat-form-field appearance="outline" class="w-100 example-full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" formControlName="first_name" placeholder="Enter first name" required />
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field appearance="outline" class="w-100 example-full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" formControlName="first_name" placeholder="Enter first name" required />
+        </mat-form-field>
+      </div>
+      
 
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Last Name</mat-label>

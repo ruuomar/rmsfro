@@ -10,10 +10,10 @@
                                 <th>Registration No</th>
                                 <th>Document title</th>
                                 <th>Document Name</th>
-                                <th>Date Uplod</th>
-    
                                 <th>status</th>
-                                <th>action</th>
+                                <th>Approval</th>
+    
+                                <th>status</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -23,8 +23,9 @@
                                     <td>{{item.student.std_regNumber }}</td>
                                     <td>{{item.doc_type}}</td>
                                     <td>{{item.doc_Title}}</td>
-                                    <td>{{item.doc_dateUpload}}</td>
-                                    <td>{{item.doc_status}}</td>
+                                    <td>{{item.is_completed }}</td>
+                                    <td>{{item.approval}}</td>
+                                    <td>{{item.date}}</td>
                             <td>
                                 <button class="btn btn-outline-success" (click)="viewfile(item.doc_id)"color="big-sucess">view</button>
                             </td></tr>

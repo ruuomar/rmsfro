@@ -66,5 +66,7 @@ export class MySubmitionComponent implements OnInit {
     } else {
       console.log('Form is invalid');
     }
+    this.documentForm.reset()
   }
+
 }

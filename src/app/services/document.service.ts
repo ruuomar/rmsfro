@@ -35,7 +35,7 @@ export class DocumentService {
 
   getAlldocument(): Observable<any>{
     const headers = this.httpService.getAuthHeaders();
-    return this.http.get(this.url+"getDocument", {headers });
+    return this.http.get(this.url+"getAllDocument", {headers });
   }
 
   getDocument(doc_id: any): Observable<Blob> {

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Upload Marks</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" #uploadForm="ngForm">
+    <div>
+      <label for="fileInput">Select File:</label>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" required />
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-button color="primary" (click)="onSubmit()">Upload</button>
+</mat-dialog-actions>
+
+
+
+  

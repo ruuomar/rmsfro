@@ -7,3 +7,43 @@
 mat-card {
   margin: 16px 0;
 }
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+   background-color: #f0f0f0; ; 
+  color: white;
+  border-bottom: 2px solid #0056b3;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: black;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 25px; 
+  padding: 5px 15px;
+}
+
+.search-container i {
+  position: absolute;
+  left: 10px;
+  color: #007bff; 
+}
+
+.search-container input {
+  padding: 8px 40px; 
+  border: none;
+  outline: none;
+  border-radius: 25px;
+}

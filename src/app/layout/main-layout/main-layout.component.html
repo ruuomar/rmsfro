@@ -67,7 +67,7 @@
           <button mat-menu-item routerLink="researchComplete">Research Complete</button>
           
         </mat-menu>
-        <a mat-raised-button routerLink="sendComment">comment</a>
+       
       }
       @else if (role === 'Student') {
         <a mat-list-item routerLink="stdDashboad" class="menu-item">
@@ -89,6 +89,12 @@
           <mat-icon class="menu-icon">comment</mat-icon>
           <span>View Comment</span>
       </a>
+
+      <a mat-list-item routerLink="viewDocument" class="menu-item">
+        <mat-icon class="menu-icon">Document</mat-icon>
+        <span>Document</span>
+      </a>
+      
       
       <a mat-list-item routerLink="result" class="menu-item">
           <mat-icon class="menu-icon">grade</mat-icon>
@@ -118,17 +124,27 @@
               <span>Internal Examiner</span>
             </button>
           </mat-menu>
-          <button mat-menu-item routerLink="DissertationResult">
-            <mat-icon>book</mat-icon>
+          
+
+          <a mat-list-item routerLink="DissertationResult" routerLinkActive="active-link">
+            <mat-icon>grade</mat-icon>
             <span>Dessertation Result</span>
-          </button>
+          </a>
         </nav>
         
       }
 
       @else if (role === 'Examiner') {
-        <a mat-list-item routerLink="examinerDashbord">Dashboard</a>
-        <a mat-list-item routerLink="completed">Submition</a>
+        
+        <a mat-list-item routerLink="examinerDashbord" routerLinkActive="active-link">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+
+        <a mat-list-item routerLink="completed" routerLinkActive="active-link">
+          <mat-icon>assignment</mat-icon>
+          <span>Submition</span>
+        </a>
       }
 
     </mat-nav-list>
